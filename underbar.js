@@ -48,7 +48,50 @@
 	    return result;
 
   	};
+//////////////////////////////////////////////////////////////////////
 
+	_.intersection = function() {
+	    var key = Array.prototype.slice.call(arguments);
+	    var result = [];
+
+	    var temp = key[0];
+
+	    for( var i = 0; i < temp.length; i++) {
+	      for( var j = 1; j < key.length; j++ ) {
+	        if( _.some(key[j], function(ele) { return temp[i] === ele }) ) {
+	          result.push(temp[i]);
+	        }
+	      }
+	    }
+	    
+	    return result;
+	  };
+
+/////////////////////////////////////////////////////////////////////
+
+	_.difference = function(array) {
+	    var key = Array.prototype.slice.call(arguments);
+
+	    var result = [];
+	    var tAndF = 0;
+
+	    for( var i = 0; i < array.length; i++) {
+	      tAndF = 0;
+	      for( var j = 1; j < key.length; j++ ) {
+	        tAndF += _.every(key[j], function(ele) { return array[i] !== ele }); 
+	      }
+
+	      if( tAndF === arguments.length - 1) {
+	        result.push(array[i]);
+	      }
+
+	    }
+	    
+	    return result;
+	  };
+
+
+////////////////////////////////////////////////////////////////////
 
 
 }());    
