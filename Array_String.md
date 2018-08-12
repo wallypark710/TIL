@@ -47,23 +47,22 @@
 > #### Method
 >
 > - *.split( seperator )*  :  문자열을 seperator로 구분하여 배열에 담아 반환.
-
-> - *.substring( start, end )*  :  인덱스에 해당하는 부분을 복사하여 문자열로 반환.
-
-> - *.substr( start , length )*  :  시작 인덱스부터 길이만큼에 해당하는 문자열을 복사.
-
-> - *.indexOf( element )*  :  element에 해당하는 인덱스를 반환. 동일한 element가 존재할경우 앞쪽 인덱스르 반환.
-
-> - *.lastIndexOf( element )*  :  indexOf 메서드와 동일한 기능이며, 차이점은 뒤에서부터 탐색한다.
-
-> - *.charCodeAt( index )*  :  주어진 인덱스에 대한 아스키코드값을 반환.
-
-> - *.charAt( index )*  :  문자열내 해당 인덱스에 해당하는 문자를 반환.
-
-> - *String.fromCharCode( asciiValue )*  :  아스키코드값에 해당하는 문자를 반환.
-
-> - *JSON.stringify( sources )*  :  source값을 문자열로 반환.
-
-> - *JSON.parse( sources )*  :  stringify의 반대 기능.
 >
-> 
+> - *.substring( start, end )*  :  인덱스에 해당하는 부분을 복사하여 문자열로 반환.
+>
+> - *.substr( start , length )*  :  시작 인덱스부터 길이만큼에 해당하는 문자열을 복사.
+>
+> - *.indexOf( element )*  :  element에 해당하는 인덱스를 반환. 동일한 element가 존재할경우 앞쪽 인덱스르 반환.
+>
+> - *.lastIndexOf( element )*  :  indexOf 메서드와 동일한 기능이며, 차이점은 뒤에서부터 탐색한다.
+>
+> - *.charCodeAt( index )*  :  주어진 인덱스에 대한 아스키코드값을 반환.
+>
+> - *.charAt( index )*  :  문자열내 해당 인덱스에 해당하는 문자를 반환.
+>
+> - *String.fromCharCode( asciiValue )*  :  아스키코드값에 해당하는 문자를 반환.
+>
+> - *JSON.stringify( sources )*  :  source값을 문자열로 반환.
+>
+> - *JSON.parse( sources )*  :  stringify의 반대 기능.
+>  
