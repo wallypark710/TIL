@@ -1,6 +1,6 @@
 # How to use TestFramework
 
-#### Basic
+### Basic
 
 1. *describe*
 
@@ -32,7 +32,7 @@
 
 
 
-#### Chai library style
+### Chai library style
 
 1. *Expext, Should* 
    : BDD ( Behaviour-Driven Development ) 요구사항에 집중하여 테스트 케이스를 만드는 방식
@@ -44,6 +44,8 @@
    'hello'.should.equal('hello');
    'hello'.should.be.a('string');
    ```
+
+   
 
 2. *Assert*
    : TDD ( Test-Driven Development ) 테스트에 집중하여 코드를 작성. assert는 하나의 메소드로써 테스트를 진행.
