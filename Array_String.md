@@ -1,13 +1,13 @@
 # Array
 
-> #### Feature
+> ### Feature
 >
 > - Method를 사용할때 immutable 한지 mutable 한지 확인.
 > - Underscore.js 라이브러리를 적절히 이용.
 >
 > 
 >
-> #### Method 
+> ### Method 
 >
 > - *.push ( element )*  :  요소를 배열 뒷쪽에 추가, 배열의 길이를 반환.
 >
@@ -37,14 +37,14 @@
 
 # String
 
-> #### Feature
+> ### Feature
 >
 > - 모든 string method는 immutable 하다.
 > - read only
 >
 > 
 >
-> #### Method
+> ### Method
 >
 > - *.split( seperator )*  :  문자열을 seperator로 구분하여 배열에 담아 반환.
 >
