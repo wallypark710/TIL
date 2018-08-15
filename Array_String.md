@@ -4,6 +4,7 @@
 >
 > - Method를 사용할때 immutable 한지 mutable 한지 확인.
 > - Underscore.js 라이브러리를 적절히 이용.
+> - typeof (array) 의 결과는 'object' , 배열인지 확인할 땐 Array.isArray 사용.
 >
 > 
 >
@@ -65,4 +66,4 @@
 > - *JSON.stringify( sources )*  :  source값을 문자열로 반환.
 >
 > - *JSON.parse( sources )*  :  stringify의 반대 기능.
->  
+> 
