@@ -97,6 +97,19 @@
 >     - $('selecteor') 와 같이 사용하면 선택자에 해당하는 모든 DOM들을 배열과 비슷한 형태로 불러온다. 그러므로 DOM에 접근할 때는 [] operator를 사용해야 접근이 가능하다.
 >
 >     ![img](https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/DOM-model.svg/428px-DOM-model.svg.png)
+>
+> - Tag
+>
+>   ```html
+>   <a> : 하이퍼링크를 정의
+>   <a href="walliarchive.wordpress.com"> walli's blog </a>
+>       
+>   <p> : 단락을 정의
+>       
+>   <div> : 하나 이상의 태그를 묶는 태그. 묶여진 요소들은 하나의 객체로 취급되어 다루기 편하다. 또한 웹 문서에서 배치를 할 때도 유리하다.
+>   ```
+
+
 
 
 
@@ -125,7 +138,13 @@
 >   </html>
 >   ```
 >
->   
+> - jQuery 기본 문법
+>
+>   ```javascript
+>   $(제어대상).method1().method2();
+>   ```
+>
+>   : 제어대상 = *element object*  ||  *CSS스타일 선택자*
 
 
 
@@ -171,7 +190,18 @@
 >     </html>
 >     ```
 >
+> - 기본 선택자
+>
+>   - type 선택자 : `elementname`
+>   - class 선택자 : ` .classname`
+>   - id 선택자 : `#idname`
+>   - universal 선택자 : `* ns|* *|*`
+>   - attribute 선택자 : `[attr=value]`
+>     : 여기서 속성이라 함은 각 태그가 가지고 있는 속성. value 값은 따옴표로 묶여 있어야 함.
+>
 >   
 >
 > - CSS 속성 참고 자료 : https://developer.mozilla.org/ko/docs/Web/CSS/CSS_Reference
+>
+> 
 
