@@ -61,6 +61,27 @@
 # Closure
 
 > - 함수가 선언되는 순간, 스코프 밖의 외부변수를 참조하고 있다면, 함수가 실행 될 때를 대비해 외부변수를 참조할 수 있게 해준다.
+>
 > - 외부함수에서 내부함수를 반환하는 것을 말함.
+>
 > - 함수는 실행될때 읽어온다. 컴파일 할때는 '아~ 함수구나' 정도만 체크
+>
 > - 변수를 프라이빗하게 관리하고 싶을때 사용.
+>
+> - example
+>
+>   ```javascript
+>   function makeIncreaseByFunction(increaseByAmount) {
+>   	return function (numberToIncrease) {
+>       	return numberToIncrease + increaseByAmount;
+>       };
+>   }
+>       
+>   var increaseBy3 = makeIncreaseByFunction(3);
+>   var increaseBy5 = makeIncreaseByFunction(5);
+>   
+>   expect(increaseBy3(10) + increaseBy5(10)).toBe(28);
+>   ```
+>
+>   
+
