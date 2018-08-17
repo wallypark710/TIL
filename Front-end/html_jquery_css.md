@@ -145,6 +145,15 @@
 >   ```
 >
 >   : 제어대상 = *element object*  ||  *CSS스타일 선택자*
+>   : var $user = $('<div></div>');  와 같이 <div></div> 택을 생성하여 객체로 반환할 수도 있음
+>
+> - method
+>
+>   - attr()
+>   - html() : 선택한 요소 안의 내용을 가져오거나, 다른 내용으로 바꿉니다.
+>   - text() : html 태그와 비슷하지만 태그는 가져오지 않는다.
+>   - A.appendTo(B) : A를 B에 추가
+>   - click()
 
 
 
@@ -202,6 +211,8 @@
 >   
 >
 > - CSS 속성 참고 자료 : https://developer.mozilla.org/ko/docs/Web/CSS/CSS_Reference
+>
+> - CSS 색상 참고 자료 : https://developer.mozilla.org/ko/docs/Web/CSS/color_value
 >
 > 
 
