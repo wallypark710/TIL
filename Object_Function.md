@@ -114,7 +114,7 @@
 >          return this.name.toUpperCase();
 >      }
 >      
->      var me = {	name : "Walli" };
+>      var me = { name : "Walli" };
 >      var you = { name : "Park" };
 >      
 >      identify.call(me); // WALLI
