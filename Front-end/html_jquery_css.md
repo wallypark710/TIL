@@ -144,8 +144,8 @@
 >   $(제어대상).method1().method2();
 >   ```
 >
->   : 제어대상 = *element object*  ||  *CSS스타일 선택자*
->   : var $user = $('<div></div>');  와 같이 <div></div> 택을 생성하여 객체로 반환할 수도 있음
+>   - 제어대상 = *element object*  ||  *CSS스타일 선택자*
+>   -  var $user = $('<div></div>');  와 같이 <div></div> 택을 생성하여 객체로 반환할 수도 있음
 >
 > - method
 >
