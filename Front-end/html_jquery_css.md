@@ -162,6 +162,9 @@
 >   - text() : html 태그와 비슷하지만 태그는 가져오지 않는다.
 >   - A.appendTo(B) : A를 B에 추가
 >   - click() : ( function() {}) 을 정의하여 클릭 이벤트를 연결할 수 있다.
+>   - val() : input value를 가져온다.
+>   - remove() : 특정 태그를 제거한다.
+>   - empty() : 태그 안의 내용을 비운다.
 
 
 
