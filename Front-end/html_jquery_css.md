@@ -107,6 +107,25 @@
 >   <p> : 단락을 정의
 >       
 >   <div> : 하나 이상의 태그를 묶는 태그. 묶여진 요소들은 하나의 객체로 취급되어 다루기 편하다. 또한 웹 문서에서 배치를 할 때도 유리하다.
+>   
+>   <link> : 외부의 문서를 연결시키는 태그
+>       - href : 연결할 곳의 주소
+>       - rel : 현재문서와 연결문서의 관계 표시
+>       - type : 연결 문서의 MIME유형 (href 속성이 설정될 때만 사용)
+>       	* css 파일 : text/css
+>       	* js 파일 : text/javascript
+>       	* xml 파일 : application/xml
+>       
+>   <input> : 사용자의 데이터 입력
+>       - type : input 요소의 종류
+>       	* text : 한 줄의 텍스트 입력칸
+>       	* password : text 속성값과 같지만, 문자를 숨겨서 표시
+>       	* checkbox
+>       	* radio	
+>       	* button
+>       
+>   <textarea> : 여러줄의 텍스트를 입력할 수 있는 입력칸
+>   <form> : 웹페이지의 정보를 다른 페이지로 전송하는 역할
 >   ```
 >
 >   - \<div> vs \<span>
@@ -219,10 +238,17 @@
 >   - attribute 선택자 : `[attr=value]`
 >     : 여기서 속성이라 함은 각 태그가 가지고 있는 속성. value 값은 따옴표로 묶여 있어야 함.
 >
->   
+> - Box Model
+>
+>   : 문서에서, 각 요소는 사각형 박스로 나타낸다.
+>
+> - CSS 속성 특징
+>
+>   - text-align : block 요소 안에 있는 inline 요소를 정렬한다.
+>     - block 요소 : \<p>, \<div>, \<ol>, \<table>
+>     - inline 요소 : \<span>, \<b>, \<a>, \<img>
 >
 > - CSS 속성 참고 자료 : https://developer.mozilla.org/ko/docs/Web/CSS/CSS_Reference
->
 > - CSS 색상 참고 자료 : https://developer.mozilla.org/ko/docs/Web/CSS/color_value
 >
 > 
