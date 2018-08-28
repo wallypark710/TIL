@@ -55,6 +55,28 @@
 >
 >     : this는 첫번째 argument가 지칭하는 것.
 >
+>- example
+>
+>  ```javascript
+>  function Espresso(){
+>      this.cost = 2500;
+>  }
+>  
+>  function Americano() {
+>      Esspresso.call(this);
+>      this.cost = (new Esspresso()).cost + 500;
+>      this.water = 250;
+>  }
+>  
+>  console.log(new Americano());
+>  ```
+>
+>  - new Americano() 가 실행됬을때 동작은 다음과 같다.
+>    1. new 키워드에 의해 Americano 객체가 생성되어 Americano 생성자 함수 내부의 this는 Americano 로 바인딩 된다.
+>    2. Esspresso.call(this) 에서 this는 Americano 이므로 Espresso 생성자 함수 내의 this는 Americano이다. 즉 Americano 객체 내부의 cost라는 속성이 생성되고 그 값은 2500 으로 할당된다.
+>    3.  this.cost = (new Esspresso()).cost + 500; 에서 this.cost 의 this는 Americano를 가리키므로, Americano의 cost속성에 Espresso.cost 값에 500 이 더해진 값이 할당 된다.
+>    4. this.water = 250; 에서 this는 Americano이므로 Americano 객체 내부의 water라는 속성이 추가되고, 값은 250 으로 할당된다.
+>
 
 
 
@@ -83,5 +105,4 @@
 >   expect(increaseBy3(10) + increaseBy5(10)).toBe(28);
 >   ```
 >
->   
 
