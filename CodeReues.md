@@ -68,4 +68,36 @@
 >
 >
 >
+> #### 2. example
+>
+> ```javascript
+> function Espresso(){
+>     this.cost = 2500;
+> }
+> 
+> function Water(espresso){
+>     espresso.cost = espresso.cost + 500;
+>     espresso.water = 250;
+>     return espresso;
+> }
+> 
+> function Milk(espresso){
+>     espresso.cost = espresso.cost + 500;
+>     espresso.milk = 100;
+>     return espresso;
+> }
+> 
+> /****** use ******/
+> var espresso = new Espresso();
+> //{ cost: 2500 }
+> var americano = Water(new Espresso());
+> //{ cost: 3000, water: 250}
+> var latte = Milk(Water(new Espresso()));
+> //{ cost: 3500, water: 250, milk: 100}
+> ```
+
+
+
+# Pseudoclassical Class
+
 >
