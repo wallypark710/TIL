@@ -43,8 +43,6 @@
 >        console.log(p.getName()); //lee가 출력된다.
 >        ```
 >
->      
->
 > - 객체 요소에 접근하는 방법
 >
 >   1. obj.key;
