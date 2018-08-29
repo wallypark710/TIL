@@ -123,3 +123,8 @@
 >      ```
 >
 >      : call, apply의 경우 첫번째 인자는 this, 두번째 인자는 함수에 넘길 인자. 인자가 배열일땐 apply, 낱개일땐 call
+>
+> - Callback function
+>
+>   - 인수로서 넘겨주는 함수
+
