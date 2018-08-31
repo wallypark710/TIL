@@ -98,6 +98,48 @@
 
 
 
-# Pseudoclassical Class
+# Singleton Pattern
 
+> #### 1. define
 >
+> ```text
+> 생성자가 여러 차례 호출되더라도 실제로 생성되는 객체는 하나이고 최초 생성 이후에 호출된 생성자는 최초의 생성자가 생성한 객체를 리턴한다.
+> ```
+>
+> - 공통된 객체를 여러개 생성해서 사용하는 상황에 많이 사용된다.
+>
+> - 클로저를 이용하여 모든 속성은 private이다.
+>
+>
+> #### 2. example
+>
+> ```javascript
+> var singleton = (function(){
+>     var instance;
+>     var owner = 'walli';
+>     function init(){
+>         return {
+>             owner : owner
+>         };
+>     }
+>     
+>     return {
+>         getInstance: function(){
+>             if(!instance){
+>                 instance = init();
+>             }
+>             return instance;
+>         }
+>     }
+> })();
+> 
+> /****** use ******/
+> var first = singleton.getInstance();
+> var second = singleton.getInstance();
+> console.log(first === second); //true
+> ```
+>
+>
+>
+>
+
