@@ -60,4 +60,15 @@
 >    $git push origin master
 >    ```
 >
+> 7. 로컬에서 저장소를 만들때
+>
+>    - github에 저장소를 먼저 만든다.
+>
+>    - 지정하고자 하는 로컬 디렉터리로 이동
+>
+>      ```text
+>      $git init
+>      $git remote add origin (github_repository_address)
+>      ```
+>
 
