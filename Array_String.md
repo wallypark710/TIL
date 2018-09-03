@@ -6,7 +6,7 @@
 > - Underscore.js 라이브러리를 적절히 이용.
 > - typeof (array) 의 결과는 'object' , 배열인지 확인할 땐 Array.isArray 사용.
 >
-> 
+>
 >
 > ### Method 
 >
@@ -32,7 +32,6 @@
 >
 > - *Array.isArray( param )*  :  배열인지 아닌지를 true or false로 반환.
 >
->   
 
 
 
@@ -67,3 +66,16 @@
 >
 > - *JSON.parse( sources )*  :  stringify의 반대 기능.
 > 
+
+
+
+#  Regular Expression
+
+>### Reg Exp
+>
+>
+>
+>### Method
+>
+>- String.match( pattern ) : 정규표현식에 해당하는 부분을 배열로 반환.
+>- String.replace( pattern, string ) : 정규표현식에 해당하는 부분을 string으로 치환.
