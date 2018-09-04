@@ -94,16 +94,21 @@
 > - example
 >
 >   ```javascript
->   function makeIncreaseByFunction(increaseByAmount) {
->   	return function (numberToIncrease) {
->       	return numberToIncrease + increaseByAmount;
->       };
->   }
+>   /* Memoize */
+>   var _memoize = function(func){
+>       var cache = {};
 >       
->   var increaseBy3 = makeIncreaseByFunction(3);
->   var increaseBy5 = makeIncreaseByFunction(5);
->   
->   expect(increaseBy3(10) + increaseBy5(10)).toBe(28);
+>       return function(){
+>           var arg = Object.values(arguments);
+>           var key = JSON.stringify(arg);
+>           
+>           if( !key in cache){
+>               cache[key] = func.apply(this, arg);
+>           }
+>               return cache[key];
+>           }
+>       }
+>   };
 >   ```
 >
 
