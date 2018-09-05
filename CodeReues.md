@@ -1,3 +1,84 @@
+# Recursion
+
+> #### 1. define
+>
+> ```text
+> 함수가 자기 자신을 호출하는 것을 의미한다.
+> ```
+>
+> #### 2. example
+>
+> ```javascript
+> /* factorial */
+> var factorial = function(number){
+>     if(number < 1){
+>         return 1;
+>     } else {
+>         return number * factorial(number-1);
+>     }
+> };
+> 
+> /* fibonacci */
+> var fibonacci = function(n){
+>     if( n < 2 ){
+>         return n;
+>     } else {
+>         return fibonacci(n-1) + fibonacci(n-2);
+>     }
+> };
+> ```
+>
+> #### 3. memoization
+>
+> ```text
+> memoization은 반복되는 결과를 저장해 두었다가 다음에 같은 결과가 나올 때 저장해둔 결과를 사용하여 실행속도를 높이는 기법을 말한다.
+> ```
+>
+> - 메모이제이션은 반복되는 계산이 많을수록 효과가 높아진다.
+>
+> - example
+>
+>   ```javascript
+>   /* factorial */
+>   var factorial = (function(){
+>       var cache = {};
+>       
+>       var fact = function(number){
+>           if( number < 1 ){
+>               return 1;
+>           } else {
+>               var saved = cache[number-1] || fact(number-1);
+>               var result = number * saved;
+>               cache[number] = result;
+>               return result;
+>           }
+>       };
+>       return fact;
+>   })();
+>   
+>   
+>   /* fibonacci */
+>   var fibonacci = (function(){
+>       var cache = {};
+>       
+>       var fibo = function(n){
+>           if( n < 2 ){
+>               return n;
+>           } else {
+>               var temp_n1 = cache[n-1] || fibo(n-1);
+>               var temp_n2 = cache[n-2] || fibo(n-2);
+>               var result = temp_n1 + temp_n2;
+>               cache[n] = result;
+>               return result;
+>           }
+>       };
+>       return fibo;
+>   })();
+>   ```
+>
+
+
+
 # Inheritance & Prototype Chain
 
 > ### Prototype Chain을 이용한 상속
@@ -142,3 +223,4 @@
 >
 >
 >
+
