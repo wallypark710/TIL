@@ -71,4 +71,12 @@
 >      $git remote add origin (github_repository_address)
 >      ```
 >
+>
+> 8. 파일 이름 변경
+>
+>    ```text
+>    $git mv (변경할 파일 이름) (수정된 파일 이름)
+>    ```
+>
+>    - 이후 commit 과 push를 진행하면 github에 수정된 내용이 갱신된다.
 
