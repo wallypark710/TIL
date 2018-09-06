@@ -40,9 +40,20 @@
 > ### Feature
 >
 > - 모든 string method는 immutable 하다.
-> - read only
 >
-> 
+> - string은 read only이다. String역시 Array와 같이 index를 이용하여 각 부분에 접근할 수 있지만 Array와는 다르게 부분수정은 불가하다.
+>
+>   ```javascript
+>   var str = "hello world";
+>   console.log( str ); // "hello world"
+>   
+>   str[0] = "P";
+>   
+>   console.log( str[0] ); // "hello world"
+>   ```
+>
+>
+>
 >
 > ### Method
 >
@@ -65,7 +76,7 @@
 > - *JSON.stringify( sources )*  :  source값을 문자열로 반환.
 >
 > - *JSON.parse( sources )*  :  stringify의 반대 기능.
-> 
+>
 
 
 
