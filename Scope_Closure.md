@@ -105,6 +105,8 @@
 >
 > - 함수 내부의 변수를 프라이빗하게 관리하고 싶을때 사용.
 >
+> - 반환되는 함수를 묶어서 객체로 반환하기도 한다.
+>
 > - example
 >
 >   ```javascript
@@ -123,6 +125,31 @@
 >           }
 >       }
 >   };
+>   
+>   
+>   /* private variable */
+>   function makeCounter(){
+>       var privateCounter = 0;
+>       
+>       return {
+>           increment: function(){
+>               privateCounter++;
+>           },
+>           decrement: function(){
+>               privateCounter--;
+>           },
+>           getValue: function(){
+>               return privateCounter;
+>           }
+>       }
+>   }
+>   
+>   var counter = makeCounter();
+>   counter.increment(); // privateCounter : 1
+>   counter.increment(); // privateCounter : 2
+>   counter.getValue(); // 2
+>   counter.decrement(); // privateCounter : 1
+>   counter.getValue(); // 1
 >   ```
 >
 
