@@ -16,7 +16,7 @@
 >
 > - *.pop()*  :  배열의 마지막 요소를 반환.
 >
-> - *.slice( begin, end )*  :  배열의 인덱스에 해당하는 부분을 복사, end는 포함하지 않는다, 인덱스를 넘기지 않으면 배열 전체를 복사.
+> - *.slice( begin, end )*  :  배열의 인덱스에 해당하는 부분을 복사, end는 포함하지 않는다, 인덱스를 넘기지 않으면 배열 전체를 복사. shallow copy.
 >
 > - *.splice( index, num, item )*  :  index부터 num개의 요소를 삭제하고, item을 추가.
 >
@@ -57,7 +57,14 @@
 >
 > ### Method
 >
-> - *.split( seperator )*  :  문자열을 seperator로 구분하여 배열에 담아 반환.
+> - *.split( seperator )*  :  문자열을 seperator로 구분하여 배열에 담아 반환. seperator를 정규표현식으로 줄 수도 있다.
+>
+>   ```javascript
+>   var str = "10+30-20";
+>   
+>   console.log( str.split(/[+,-]/) );
+>   // ["10","30","20"]
+>   ```
 >
 > - *.substring( start, end )*  :  인덱스에 해당하는 부분을 복사하여 문자열로 반환.
 >
