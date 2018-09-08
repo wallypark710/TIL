@@ -124,6 +124,24 @@
 >
 >      : call, apply의 경우 첫번째 인자는 this, 두번째 인자는 함수에 넘길 인자. 인자가 배열일땐 apply, 낱개일땐 call
 >
+>   4. bind를 이용하여 호출
+>
+>      : 인자로 넘겨준 객체와 this를 연결하여 새로운 함수를 반환한다. 함수를 반환하기 때문에 실행되지는 않는다.
+>
+>      ```javascript
+>      function identify(){
+>          return this.name;
+>      }
+>      
+>      var me = { name : "walli" };
+>      var you = { name : "park" };
+>      
+>      identify.bind(me); // function identify(){ return this.name };
+>      identify.bind(me)(); // "walli"
+>      
+>      identify.bind(you)(); // "park"
+>      ```
+>
 > - Callback function
 >
 >   - 인수로서 넘겨주는 함수
