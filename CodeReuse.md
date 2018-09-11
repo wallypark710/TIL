@@ -84,6 +84,57 @@
 
 # Inheritance & Prototype Chain
 
+### Prototype
+
+>프로토타입이란 인스턴스가 생성(instantiation)될 때 원형(original form)으로 프로토타입의 모양대로 인스턴스가 생성된다. 같은 생성자를 통해 만들어진 객체들은 모두 이 프로토타입을 공유한다. 즉, 객체를 만들때마다 prototype의 속성이 그대로 다 넘어오는 것이 아니라 한번 만들어진 prototype에 연결만 된다.
+
+- example 1
+
+  ```javascript
+  function Car(model, brand) {
+      this.model = model;
+      this.brand = brand;
+  }
+  
+  Car.prototype.ride = function(){
+      console.log("vrooooooom! " + this.model)
+  };
+  
+  var spark = new Car("spark", "chevorlet");
+  spark.ride(); // "vroooooom! spark"
+  ```
+
+  - javascript에서 기본적으로 제공되는 객체에 사용자 정의 메소드를 직접 추가할 수 있음. 그러나 사용자 정의 메소드 확장은 다른 코드와 충돌을 일으킬 수 있으므로 추천하지 않는다.
+  - 직접 객체를 작성하여 사용할 때 프로토타입 메소드 확장을 사용하자.
+
+- example 2
+
+  ```javascript
+  // 첫번째 방법
+  function Person(name, age){
+     this.name = name;
+     this.age = age;
+     
+      this.greeting = function(){
+          console.log(this.name + ' hello');
+      }
+  }
+  
+  // 두번째 방법
+  function Person(name, age){
+     this.name = name;
+     this.age = age;
+  }
+  
+  Person.prototype.greeting = function(){
+      console.log(this.name + ' hello');
+  }
+  ```
+
+  - 위 예제처럼 메서드를 만들땐 두번째 방법으로 하는것이 효율적이다. 프로토타입은 모든 객체들이 공유하고 있어 한 번만 만들어지지만, 생성자 함수 속의 메서드는 객체를 생성할 때 마다 메서드도 하나씩 만들어지기 때문에 불필요한 메모리낭비가 발생한다.
+  - 프로토타입을 사용하지 않고 메서드를 외부에 따로 정의해주고, 그 함수의 참조값만 전달하는 방법도 있다.
+
+
 ### Prototype Chain을 이용한 상속
 
 #### 1. 속성 상속
