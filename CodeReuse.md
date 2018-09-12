@@ -135,6 +135,44 @@
   - 프로토타입을 사용하지 않고 메서드를 외부에 따로 정의해주고, 그 함수의 참조값만 전달하는 방법도 있다.
 
 
+
+### Inheritance
+
+>상속이란 어떤 객체의 로직을 그대로 물려 받은 또 다른 객체를 만들 수 있는 기능을 의미한다. 즉, 물려받은 객체( 자식객체 )는 물려준 객체( 부모객체 ) 의 기능을 베이스로 하면서도 새로운 기능을 추가하는 것을 의미한다. 자바스크립트에서는 상속을 위한 문법은 없고, prototype을 이용하여 상속을 구현한다.
+
+
+
+- example
+
+  ```javascript
+  function Person (firstName){
+      this.firstName = firstName;
+  }
+  
+  Person.prototype.geeting = function(){
+      console.log("hello, I'm" + this.firstName);
+  };
+  
+  
+  //Person을 상속하여 Student를 만들어 보자.
+  
+  function Student(firstName. subject){
+      Person.call(this,firstName);
+      this.subject = subject;
+  }
+  
+  Student.prototype = Object.create(Person.prototype);
+  Student.prototype.constructor = Student;
+  
+  Student.prototype.sayGoodBye = function(){
+      console.log("Goodbye!");
+  }
+  
+  ```
+
+
+
+
 ### Prototype Chain을 이용한 상속
 
 #### 1. 속성 상속
