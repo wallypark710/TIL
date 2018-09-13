@@ -3,9 +3,22 @@
 ### Feature
 
  - Method를 사용할때 immutable 한지 mutable 한지 확인.
+
  - Underscore.js 라이브러리를 적절히 이용.
+
  - typeof (array) 의 결과는 'object' , 배열인지 확인할 땐 Array.isArray 사용.
 
+ - 배열은 단순 대이비 연산을 진행하면 얕은복사를 진행한다. 즉 레퍼런스 카피가 진행된다. 메모리가 새로 할당되어 객체가 복사되는것이 아니라 주소값만 연결된다. 같은 곳을 바라보고 있는것이다.
+
+   ```javascript
+   var arr_1 = [1,2,3,4,5];
+   
+   var arr_2 = arr_1;
+   console.log(arr_2); // [1,2,3,4,5]
+   
+   arr_1.push(6);
+   console.log(arr_2); // [1,2,3,4,5,6]
+   ```
 
 
 ### Method 
