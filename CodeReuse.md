@@ -145,31 +145,49 @@
 - example
 
   ```javascript
-  function Person (firstName){
-      this.firstName = firstName;
-  }
-  
-  Person.prototype.geeting = function(){
-      console.log("hello, I'm" + this.firstName);
-  };
-  
-  
-  //Person을 상속하여 Student를 만들어 보자.
-  
-  function Student(firstName. subject){
-      Person.call(this,firstName);
-      this.subject = subject;
-  }
-  
-  Student.prototype = Object.create(Person.prototype);
-  Student.prototype.constructor = Student;
-  
-  Student.prototype.sayGoodBye = function(){
-      console.log("Goodbye!");
-  }
+  1    function Person (firstName){
+  2        this.firstName = firstName;
+  3    }
+  4
+  5    Person.prototype.geeting = function(){
+  6        console.log("hello, I'm" + this.firstName);
+  7    };
+  8
+  9
+  10    //Person을 상속하여 Student를 만들어 보자.
+  11
+  12    function Student(firstName. subject){
+  13        Person.call(this,firstName);
+  14        this.subject = subject;
+  15    }
+  16
+  17    Student.prototype = Object.create(Person.prototype);
+  18    Student.prototype.constructor = Student;
+  19
+  20    Student.prototype.sayGoodBye = function(){
+  21        console.log("Goodbye!");
+  22    }
   
   ```
 
+  - *1 - 7 line*
+
+    : 새로운 생성자 함수를 정의하고 정의한 객체 프로토타입에 함수를 하나 추가한다. 프로토타입에 추가한 함수이므로 Person객체를 기반으로하는 모든 객체가 접근 가능하다.
+
+  - *12 - 15 line*
+
+    : Student라는 객체 생성자 함수를 정의한다. 이때 내부에서 Person 객체의 생성자 함수를 Student 객체를 바인딩하여 호출한다. 이렇게 함으로써 Student객체 요소는 Person객체 요소를 기본으로하고 Student객체에만 존재하는 요소로 이루어진다. 
+
+  - *17 - 18 line*
+
+    : Person객체의 프로토타입을 상속받기 위해 Student 프로토타입을 업데이트 한다. 이때 `Object.create( 프로토타입이될 객체 )`메소드를 사용하는데 이 메소드는 파라미터로 전달한 객체의 주소값을 반환한다. 즉, 17라인의 코드는 Student의 프로토타입에 Person의 프로토타입 객체 주소를 저장함으로써 프로토타입을 서로 연결시킨 것이다.(객체를 새로 만든것이 아니라 연결시킨 것이다.) 
+
+
+    이렇게 프로토타입을 업데이트하면 프로토타입의 요소로 들어가있는 생성자 함수까지 업데이트된다. 17번 라인까지 실행되면 Student의 생성자함수는 Person이 되어있다. 따라서, 생성자 함수는 본래 객체의 생성자함수로 재조정해준다. 이렇게 함으로써 상속이 완성된다.
+
+  - *20 - 22 line*
+
+    : Student의 프로토타입에 새로운 메소드를 하나 추가한다.
 
 
 
