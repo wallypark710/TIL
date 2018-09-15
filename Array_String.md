@@ -92,6 +92,6 @@
 
  - *String.fromCharCode( asciiValue )*  :  아스키코드값에 해당하는 문자를 반환.
 
- - *JSON.stringify( sources )*  :  source값을 문자열로 반환.
+ - *JSON.stringify( sources )*  :  source값을 문자열(정확히 말하면 JSON )로 반환.
 
  - *JSON.parse( sources )*  :  stringify의 반대 기능.
