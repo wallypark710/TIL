@@ -180,14 +180,47 @@
 
   - *17 - 18 line*
 
-    : Person객체의 프로토타입을 상속받기 위해 Student 프로토타입을 업데이트 한다. 이때 `Object.create( 프로토타입이될 객체 )`메소드를 사용하는데 이 메소드는 파라미터로 전달한 객체의 주소값을 반환한다. 즉, 17라인의 코드는 Student의 프로토타입에 Person의 프로토타입 객체 주소를 저장함으로써 프로토타입을 서로 연결시킨 것이다.(객체를 새로 만든것이 아니라 연결시킨 것이다.) 
-
+    : Person객체의 프로토타입을 상속받기 위해 Student 프로토타입을 업데이트 한다. 이때 `Object.create( 프로토타입이될 객체 )`메소드를 사용하는데 이 메소드는 파라미터로 전달한 프로토타입 객체 및 속성을 갖는 새로운 개체를 반환한다. 즉, 17라인의 코드는 Student의 프로토타입에 Person의 프로토타입 객체를 복사함으로써 프로토타입을 서로 연결시킨 것이다.(객체를 새로 만든것이 아니라 연결시킨 것이다.) 
 
     이렇게 프로토타입을 업데이트하면 프로토타입의 요소로 들어가있는 생성자 함수까지 업데이트된다. 17번 라인까지 실행되면 Student의 생성자함수는 Person이 되어있다. 따라서, 생성자 함수는 본래 객체의 생성자함수로 재조정해준다. 이렇게 함으로써 상속이 완성된다.
 
-  - *20 - 22 line*
+    - *20 - 22 line*
 
-    : Student의 프로토타입에 새로운 메소드를 하나 추가한다.
+      : Student의 프로토타입에 새로운 메소드를 하나 추가한다.
+
+- prototype 연결에 대한 추가 설명
+
+  : 위의 상속에대한 코드 설명중 17-18 line 설명에서 Object.create() 함수 사용에 대해 언급했는데, 이 함수의 실행결과가 반환되어 대입되는 과정이 조금 특이하여 좀더 자세히 살펴보고자 한다.
+
+
+
+  위 코드에서 프로토타입을 연결하는 방법은 다음과 같이 두가지 방법을 생각할 수 있다.
+
+  ```javascript
+  // 방법 1.
+  Student.prototype = Person.prototype;
+  
+  // 방법 2.
+  Student.prototype = Object.create(Person.prototype);
+  ```
+
+  이 두 방법의 차이를 자세하게 살펴보면
+
+  - 방법 1
+
+    : 이 방법의 경우 Student prototype객체 자체가 Person prototype객체로 대치된다. 객체의 단순 대입연산의 경우 reference copy(얕은복사)가 일어나므로 Student prototype에는 Person prototype객체의 주소값이 들어가게 된다. 즉, Person prototype 객체와 Student prototype 객체 모두 Person prototype객체에 연결되어 있는 것이다. 
+
+    하지만 이 방법의 경우 상속을 받은 자식 객체의 prototype이 곧 부모 객체의 prototype 이므로 한 자식 객체의 prototype 변화가 부모 객체의 prototype에 영향을 주게 되고, 이로인해 이 부모로 부터 파생된 모든 객체에 영향을 주게 된다. 이러한 영향을 피하기 위해 방법 2를 사용한다.
+
+  - 방법 2
+
+    : 이 방법의 경우, `Object.create(프로토타입으로 지정할 객체)` 함수의 실행 결과로 지정된 프로토타입 객체의 속성을 가진 새 객체를 만들어 반환한다. 이 경우 언듯 보기에 deep copy가 된것처럼 보이지만 이 역시 reference copy가 일어난다. 
+
+    `Object.create()` 함수의 실행 결과는 *\__proto__* 를 key로 하고, 아규먼트로 넘긴 지정할 객체의 주소를 value로 하는 key-value 쌍을 대상 객체에 추가한다.
+
+    이렇게 할 경우 Student prototype 객체가 Person prototype객체로 대치되는 것이 아니라, Person prototype 객체가 링크로 연결되어 Student prototype 객체의 한 요소로 들어가게 된다. 
+
+    이렇게 함으로써 자식 객체에서의 prototype 변동이 부모 객체의 prototype객체에 영향을 주지 않으면서, 동시에 부모 객체의 prototype 변동은 자식 객체에 적용되는 효과를 볼 수 있다.
 
 
 
