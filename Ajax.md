@@ -112,6 +112,8 @@ function makeRequest(){
             }
         }
     }
+    httpRequest.open('GET','URL');
+    httpRequest.send();
 }
 ```
 
