@@ -36,8 +36,26 @@ httpRequest.send(null);
 
 - open()
   - 첫번째 파라미터 : GET, POST, HEAD 중의 하나.
+
+    - POST 방식으로 데이터를 전송할 경우.
+
+      ```javascript
+      //서버로 전송할 데이터 타입의 형식을 지정한다.
+      httpRequest.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+      
+      //서버로 전송할 데이터를 형식에 맞게 만든다. 이름=값&이름=값&이름=값... 형식을 지켜야 한다.
+      
+      var data = '';
+      data += 'year=2018';
+      data += '&time=12';
+      
+      //서버로 전송
+      httpRequest.send(data);
+      ```
+
   - 두번째 파라미터 : 요구하고자 하는 URL.
-  - 세번째 파라미터(생략가능) : 비동기식으로 수행될 지를 결정. 기본값은 true. 
+
+  - 세번째 파라미터(생략가능) : 동기적으로 수행할지 비동기식으로 수행할 지를 결정. true 는 비동기 실행이고, false는 동기실행이다. 기본값은 true. 
 
 
 
