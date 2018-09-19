@@ -156,7 +156,7 @@
   9
   10    //Person을 상속하여 Student를 만들어 보자.
   11
-  12    function Student(firstName. subject){
+  12    function Student(firstName, subject){
   13        Person.call(this,firstName);
   14        this.subject = subject;
   15    }
