@@ -212,6 +212,68 @@
     }).end();
     ```
 
+  - ##### POST 서버 구현
+
+    POST 요청을 처리하려면 POST 본문 내용을 읽고 내용을 처리하는 요청 핸들러 코드를 구현해야 한다. 데이터 처리를 마치면 클라이어트에 보낼 데이터를 동적으로 만들어 응답으로 작성한 후 `call()` 을 호출해 응답을 마무리하고 writable 스트림을 비운다.
+
+
+
+
+    아래는 POST 요청을 처리하는 기본 HTTP 서버의 구현이다.
+
+    ```javascript
+    var http = require('http');
+    
+    http.createServer(function( req, res ){
+        var jsonData = '';
+        req.on('data', function(chunk){
+            jsonData += chunk;
+        });
+        
+        req.on('end', function(){
+            var reqObj = JSON.parse(jsonData);
+            var resObj = {
+                message: reqObj.name,
+                questioin : reqObj.occupation
+            };
+            
+            res.writeHead(200);
+            res.end(JSON.stringify(resObj));
+        });
+    }).listen(3000);
+    ```
+
+
+
+    아래는 POST 방식으로 JSON데이터를 서버에 보내고 JSON응답을 처리하는 HTTP 클라이언트 구현이다.
+
+    ```javascript
+    var http = require('http');
+    var options = {
+        host: '127.0.0.1',
+        path: '/',
+        port: '3000',
+        method: 'POST'
+    };
+    
+    function readJSONResponse( response ){
+        var responseData = '';
+        
+        response.on('data', function(chunk){
+            responseData += chunk;
+        });
+        
+        response.on('end', function(){
+            var dataObj = JSON.parse(responseData);
+            console.log(dataObj);
+        });
+    }
+    
+    var req = http.request(options, readJSONResponse);
+    req.write('{"name":"Bilbo", "occupation":"Burglar"}');
+    req.end();
+    ```
+
 
 
 
