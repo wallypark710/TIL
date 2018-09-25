@@ -82,6 +82,13 @@
 
  - *.substr( start , length )*  :  시작 인덱스부터 길이만큼에 해당하는 문자열을 복사.
 
+ - .repeat( number ) : 문자열을 number수 만큼 반복.
+
+   ```javascript
+   var str = "ABC";
+   console.log( str.repeat(3) ); // "ABCABCABC"
+   ```
+
  - *.indexOf( element )*  :  element에 해당하는 인덱스를 반환. 동일한 element가 존재할경우 앞쪽 인덱스르 반환.
 
  - *.lastIndexOf( element )*  :  indexOf 메서드와 동일한 기능이며, 차이점은 뒤에서부터 탐색한다.
@@ -90,8 +97,21 @@
 
  - *.charAt( index )*  :  문자열내 해당 인덱스에 해당하는 문자를 반환.
 
+ - .trim() : 문자열 시작과 끝의 공백문자를 제거한다.
+
+   ```javascript
+   var str = "  ABC  ";
+   console.log( str.trim() ); // "ABC"
+   
+   // 앞쪽 공백문자나 뒷쪽 공백문자만 제거할 수 있다.
+   console.log( str.trimLeft() ); // "ABC "
+   
+   console.log( str.trimRight() ); // " ABC"
+   ```
+
  - *String.fromCharCode( asciiValue )*  :  아스키코드값에 해당하는 문자를 반환.
 
  - *JSON.stringify( sources )*  :  source값을 문자열(정확히 말하면 JSON )로 반환.
 
  - *JSON.parse( sources )*  :  stringify의 반대 기능.
+
