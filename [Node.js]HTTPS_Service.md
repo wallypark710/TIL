@@ -25,3 +25,34 @@
   ```javascript
   options.agent = new https.Agent(options);
   ```
+
+  옵션을 정의했으면 `http.request()` 와 동일한 `https.request(options, [responseCallback])` 를 호출할 수 있다. 둘간의 유일한 차이점은 클라이언트와 서버 사이의 데이터가 암호화된 것이다.
+
+  ```javascript
+  var options = {
+      hostname: 'wallypark710.github.io',
+      port: '3000',
+      method: 'GET',
+      key: fs.readFileSync('test/keys/client.pem'),
+      cert: fs.readFileSync('test/keys/client.crt'),
+      agent: false
+  };
+  
+  var req = https.request(options, function(res){
+      ...
+  });
+  ```
+
+- ##### HTTPS 서버
+
+  ```javascript
+  var options = {
+      key : fs.readFileSync('test/keys/server.pem'),
+      cert : fs.readFileSync('test/keys/server.crt')
+  };
+  
+  https.createServer(options, function(req, res){
+      res.writeHead(200);
+      res.end("Hello secure world");
+  }).listen(3000);
+  ```
