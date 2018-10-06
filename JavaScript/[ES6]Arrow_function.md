@@ -70,5 +70,26 @@ param => ( {key : value} );
 
 
 
+- arrow function을 객체 내부의 메소드를 정의할땐 주의해야 한다. this가 객체에 바인딩 되지 않고, 전역 객체에 바인딩 된다.
+
+  ```javascript
+  let obj = {
+      name : 'walli',
+      say : () => { console.log(this.name) };
+  }
+  
+  obj.say();	// 전역에 바인딩되어 아무것도 출력되지 않음.
+  ```
+
+  객체의 메소드를 정의할땐 아래와 같이 정의한다.
+
+  ```javascript
+  let obj = {
+      name : 'walli',
+      say(){ console.log( this.name ) };
+  }
+  
+  obj.say(); // walli;
+  ```
 
 
