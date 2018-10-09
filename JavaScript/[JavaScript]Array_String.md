@@ -45,6 +45,35 @@
 
  - *Array.isArray( param )*  :  배열인지 아닌지를 true or false로 반환.
 
+ - .sort() : 배열의 요소를 적절한 위치에 정렬한 후 그 배열을 반환. 메서드에 콜백함수를 넘김으로써 정렬 순서를 정의할 수 있다.
+
+   ```javascript
+   let arr = [1, 3, 5, 2, 4];
+   arr.sort(); // [1, 2, 3, 4, 5];
+   
+   arr.sort( function(a, b) {
+       if( a is less than b by some ordering criterion ){
+           return -1;
+       }
+       if( a is greater than b by the ordering criterion ){
+           return 1;
+       }
+       // a must be equal to b
+       return 0;
+   })
+   ```
+
+   문자열을 비교할땐 다음과 같이 쓸 수도 있다.
+
+   ```javascript
+   arr.sort( function(a, b){
+       return a.localeCompare(b);
+   })
+   
+   // String.localeCompare() 메서드는 비교 문자열이 대성 문자열과의 정렬상 순서를 나타내는 숫자를 반환한다.(1, -1, 0 중 하나)
+   ```
+
+
 
 
 
