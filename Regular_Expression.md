@@ -24,6 +24,15 @@
 
 
 
+### Object
+
+```javascript
+let reg = new RegExp(pattern, 'g');
+//patten에는 문자열이 들어갈 수 있다.
+```
+
+
+
 ### Method
 
 - String.match( pattern ) : 정규표현식에 해당하는 부분을 배열로 반환.
