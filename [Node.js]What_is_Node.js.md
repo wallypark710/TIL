@@ -1,6 +1,4 @@
-# Node.js
-
-### What is Node.js
+# What is Node.js
 
 > Node.js는 Chrome V8 JavaScript 엔진으로 빌드된 JavaScript 런타임이다. Node.js는 이벤트 기반, 논 블로킹 I/O 모델을 사용해 가볍고 효율적이다.
 >
