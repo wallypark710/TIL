@@ -120,3 +120,43 @@ export default Counter;
 ```
 
 - state 값을 바꾸기 위해서는 `this.setState` 를 무조건 거쳐야 한다. 리액트에서는 이 함수가 호출되면 컴포넌트가 리렌더링 되도록 설계되어있다.
+
+- Counter 클래스의 메서드들은 다음과 같이 쓸 수도 있다.
+
+  ```javascript
+  handleIncrease = () => {
+      this.setState(
+          (state)=>({
+              number : state.number + 1
+          })
+      );
+  }
+  ```
+
+  ```javascript
+  handleIncrease = () => {
+      const {number} = this.state;
+      this.setState({
+         number : number + 1 
+      });
+  }
+  ```
+
+  ```javascript
+  handleIncrease = () => {
+      this.setState(
+          ({number}) => ({
+              number : number + 1
+          });
+      )
+  }
+  ```
+
+- 이벤트에 전달하는 값은 함수 여야 한다. 절대 실행 시키지 않는다.
+
+  ```jsx
+  <button onClick = { this.handleIncrease }> + </button>
+  
+  //아래와 같이 하면 안됨!!!!
+  <button onClick = { this.handleIncrease() }> + </button>
+  ```
