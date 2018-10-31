@@ -82,3 +82,41 @@ export default MyName;
 # State
 
 > 리액트 컴포넌트에서 다루는 데이터이다. state는 컴포넌트 내부에서 선언하며 내부에서 값을 변경 할 수 있다. 즉, 동적인 데이터를 다룰 때 사용한다.
+
+```jsx
+import React, { Component } from 'react';
+
+class Counter extends Component {
+	//class fields
+    state = {
+        number : 0;
+    }
+
+    handleIncrease = ()=>{
+        this.setState({
+            number : this.state.number + 1
+        });
+    }
+
+    handleDecrease = ()=>{
+        this.setState({
+          number : this.state.number - 1
+        });
+    }
+
+    render(){
+        return (
+            <div>
+                <h1>Counter</h1>
+                <div> value : { this.state.number }</div>
+                <button onClick={this.handleIncrese}>+</button>
+                <button onClick={this.handleDecrese}>-</button>
+            </div>
+        )
+    }
+}
+
+export default Counter;
+```
+
+- state 값을 바꾸기 위해서는 `this.setState` 를 무조건 거쳐야 한다. 리액트에서는 이 함수가 호출되면 컴포넌트가 리렌더링 되도록 설계되어있다.
