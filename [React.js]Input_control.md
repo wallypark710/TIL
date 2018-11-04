@@ -51,12 +51,12 @@ export default PhoneForm;
 
 ![input_flow](./input_flow.png)
 
-> 위 그림과 같이 부모 컴포넌트에서 메서드를 만들고, 이 메서드를 자식 컴포넌트에게 전달한 다음 자식 컴포넌트 내부에서 호출하는 방식을 사용한다.
+> 위 그림과 같이 부모 컴포넌트에서 메서드를 만들고, 이 메서드를 자식 컴포넌트에게 전달한 다음 자식 컴포넌트 내부에서 호출하는 방식을 사용한다. props를 통해 데이터를 전달한다.
 
 ```jsx
 //부모 컴포넌트
 import React, { Component } from 'react';
-import PhoneForm from './components/PhoneForm';
+import PhoneForm from './PhoneForm';
 
 class App extends Component {
   handleCreate = (data) => {
