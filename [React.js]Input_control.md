@@ -85,11 +85,13 @@ class PhoneForm extends Component {
     name: '',
     phone: ''
   }
+
   handleChange = (e) => {
     this.setState({
       [e.target.name]: e.target.value
     })
   }
+  
   handleSubmit = (e) => {
     // 페이지 리로딩 방지, form 에서 submit이 발생하면 페이지를 reloading하기 때문에
     e.preventDefault();
@@ -101,6 +103,7 @@ class PhoneForm extends Component {
       phone: ''
     })
   }
+  
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
@@ -110,12 +113,14 @@ class PhoneForm extends Component {
           onChange={this.handleChange}
           name="name"
         />
+            
         <input
           placeholder="number"
           value={this.state.phone}
           onChange={this.handleChange}
           name="phone"
         />
+            
         <button type="submit">submit</button>
       </form>
     );
