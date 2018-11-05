@@ -42,5 +42,8 @@ class App extends Component{
 
 export default App;
 ```
+<<<<<<< HEAD
 
 test
+=======
+>>>>>>> 8c48aceb4b6f2427f48a43508944cd01634af700
