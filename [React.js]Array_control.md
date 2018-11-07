@@ -42,4 +42,7 @@ class App extends Component{
 
 export default App;
 ```
-test commit
+
+- 컴포넌트 내부에서 필요한 값 중에서, 렌더링 되는것과 상관 없는것은 state에 넣어줄 필요가 없다.
+- event에 함수를 전달할때는 함수를 전달한다. 함수의 실행결과를 넘기면 안된다.
+- render 함수 내부에 const 변수를 선언하여 결과를 출력한다.

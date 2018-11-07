@@ -160,3 +160,4 @@ export default Counter;
   //아래와 같이 하면 안됨!!!!
   <button onClick = { this.handleIncrease() }> + </button>
   ```
+
