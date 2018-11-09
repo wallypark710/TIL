@@ -77,3 +77,19 @@ console.log(three, four); // 3, 4
 ```
 
 > 객체의 경우 오른쪽이 객체이면 왼쪽도 객체여야 한다. 또한 대입하려는 객체의 요소가 대상 객체에 없다면 할당되지 않는다.
+
+
+
+```javascript
+let info = {
+    id : 3,
+    name: 'walli',
+    age : 100
+}
+
+const {name} = info;
+console.log(name); // 'walli'
+```
+
+> 위 와같이 대상 객체에 해당하는 요소를 객체로 만들어 할당할 수 있다. 생성한 객체요소는 일반 변수처럼 사용할 수 있다.
+
