@@ -8,41 +8,30 @@
 
 ```jsx
 import React, {Component} from 'react';
-import PhoneForm from './PhoneForm';
+import PhoneInfo from './PhoneInfo';
 
-class App extends Component{
-    id = 1
-	state = {
-        information : [
-            {
-                id:0,
-                name:'walli',
-                phone:'010-1111-2222'
-            }
-        ]
-	}
+class PhoneInfoList extends Component {
+  static defaultProps = {
+    data: []
+  }
 
-    handleCreate = (data) => {
-        const { information } = this.state;
-        this.setState({
-            information: information.concat({id this.id++, ...data})
-        })
-    }
-    
-    render(){
-        const { information } = this.state;
-        return(
-            <div>
-                <PhoneForm onCreate={this.handleCreate} />
-                {JSON.stringify(information)}
-            </div>
-        );
-    }
+  render() {
+    const { data } = this.props;
+    const list = data.map(
+      info => (<PhoneInfo key={info.id} info={info}/>)
+    );
+	// PhoneInfo 컴포넌트의 실행 결과로 데이터를 jsx로 반환한다.
+      
+    return (
+      <div>
+        {list}    
+      </div>
+    );
+  }
 }
 
-export default App;
+export default PhoneInfoList;
 ```
 
-- 컴포넌트 내부에서 필요한 값 중에서, 렌더링 되는것과 상관 없는것은 state에 넣어줄 필요가 없다.
-- event에 함수를 전달할때는 함수를 전달한다. 함수의 실행결과를 넘기면 안된다.
-- render 함수 내부에 const 변수를 선언하여 결과를 출력한다.
+- map 함수를 통해 PhoneInfo 가 반환한 jsx를 배열로 저장한다.
+- 배열을 렌더링 할 땐, 반드시 key값을 설정해 주어야 한다.
