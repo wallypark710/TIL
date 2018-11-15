@@ -55,6 +55,11 @@ npm start
 
 ## Start React
 
+- Component를 구현할 때는 다음과 같은 흐름으로 진행한다.
+
+  1. 컴포넌트 생김새 정의( DOM태그 작성, CSS 스타일 작성 )
+  2. 상태 관리 및 props값 전달.
+
 - Component 불러오기
 
   ```javascript
