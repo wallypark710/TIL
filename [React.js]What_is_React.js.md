@@ -78,7 +78,28 @@ npm start
   export default App;
   ```
 
-  - 컴포넌트를 만들때는 Component를 상속 받아 생성한다. 클래스 형태로 만들어진 컴포넌트에는 꼭 `render` 메서드가 있어야하고, `render` 메서드는 JSX 코드를 return 해주어야 한다. 
+  - 컴포넌트에서 LifeCycleAPI를 사용하거나, state를 사용하는 경우에는 반드시 클래스 형태로 컴포넌트를 만들어야한다.
+
+  - 컴포넌트를 만들때는 Component를 상속 받아 생성한다. 클래스 형태로 만들어진 컴포넌트에는 꼭 `render` 메서드가 있어야하고, `render` 메서드는 JSX 코드를 return 해주어야 한다.
+
+  - 컴포넌트에서 LifeCycleAPI도 사용하지않고, state도 사용하지 않고, 단순히 props만 전달해주면 view를 렌더링하는 역할만 한다면 함수형 컴포넌트 형식으로 컴포넌트를 만들수있다.
+
+    ```jsx
+    const Hello = (props)=>{
+        return(
+            <div> Hello {props.name} </div>
+        );
+    }
+    
+    //비구조화 할당
+    const Bye = ({name})=>{
+        return(
+            <div> Bye {name} </div>
+        );
+    }
+    
+    export default App; 
+    ```
 
   - `export default` 를 통해 작서한 컴포넌트를 다른 곳에서 불러와 사용할 수 있도록 한다.
 
