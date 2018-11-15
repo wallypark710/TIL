@@ -178,7 +178,13 @@ html 에서의 class는 리액트에서 className이다.
 <div className='App'> React </div>
 ```
 
+또는, css파일을 따로 만들어 사용할 수 있다.
 
+```javascript
+import './SomeTemplate.css';
+```
+
+css파일에서는 각 태그의 클래스나 아이디를 이용하여 스타일을 적용시킨다.
 
 
 
