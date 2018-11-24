@@ -41,7 +41,12 @@
      min( L[i-1,  j] , L[i,  j-1] ) + M(i,j)		otherwise.
 
 
-     위와같이 순환식을 정의할 수 있다.	
+     위와같이 순환식을 정의할 수 있다.
+
+- 계산하기
+
+  1. memoization
+  2. bottom up
 
 
 
