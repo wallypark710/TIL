@@ -67,11 +67,11 @@
          if( cacahe[row][col] !== -1 ){
              return cache[row][col];
          }
-         if(row === 1 && col === 1){
+         if(row === 0 && col === 0){
              cache[row][col] = m[row][col];
-         } else if(row === 1){
+         } else if(row === 0){
              cache[row][col] = L_way(row, col-1) + m[row][col];
-         } else if(col === 1){
+         } else if(col === 0){
              cache[row][col] = L_way(row-1, col) + m[row][col];
          } else {
              cache[row][col] = Math.min(L_way(row-1,col), L_way(row,col-1))+m[row][col];
@@ -80,6 +80,44 @@
          return cache[row][col];
      }
      ```
+
+  2. bottom-up
+
+     ```javascript
+     let m = [
+         [6, 7, 12, 5],
+         [5, 3, 11, 18],
+         [7, 17, 3, 3],
+         [8, 10, 14, 9]
+     ];
+     
+     let cache = [
+         [-1, -1, -1, -1],
+         [-1, -1, -1, -1],
+         ...
+         [-1, -1, -1, -1]
+     ];
+     
+     //이때 n은 행렬의 크기.
+     let L_way = function(){
+         for(let row = 0; row < n; row++ ){
+             for(let col = 0; col < n; col++){
+                 if( row === 0 && col === 0){
+                 	cache[row][col] = m[row][col];    
+                 } else if(row === 0){
+                     cache[row][col] = m[row][col] + cache[row][col-1];
+                 } else if(cole === 0){
+                     cache[row][col] = m[row][col] + cache[row-1][col];
+                 } else{
+                     cache[row][col] = m[row][col] + Math.min( cache[row-1][col], cache[row][col-1]);
+                 }
+             }
+             
+             return cache[n-1][n-1]
+         }
+     }
+     ```
+
 
 ### 1. Bottom-Up
 
