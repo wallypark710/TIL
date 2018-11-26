@@ -16,13 +16,13 @@
 >
 > ex)	6->7->3->11->3->14->9 와 같은 경로로 이동.
 >
-> 6	  7	  12	    5
+> 6…….7…….12…….5
 >
-> 5	  3	  11	  18
+> 5…….3…….11…….18
 >
-> 7	17	    3	    3
+> 7…….17…….3…….3
 >
-> 8	10	  14	    9
+> 8…….10…..14…….9
 
 
 
@@ -46,6 +46,40 @@
 - 계산하기
 
   1. memoization
+
+     ```javascript
+     let m = [
+         [6, 7, 12, 5],
+         [5, 3, 11, 18],
+         [7, 17, 3, 3],
+         [8, 10, 14, 9]
+     ];
+     
+     let cache = [
+         [-1, -1, -1, -1],
+         [-1, -1, -1, -1],
+         ...
+         [-1, -1, -1, -1]
+     ];
+     
+     let L_way = function(row, col){
+         if( cacahe[row][col] !== -1 ){
+             return cache[row][col];
+         }
+         if(row === 1 && col === 1){
+             cache[row][col] = m[row][col];
+         } else if(row === 1){
+             cache[row][col] = L_way(row, col-1) + m[row][col];
+         } else if(col === 1){
+             cache[row][col] = L_way(row-1, col) + m[row][col];
+         } else {
+             cache[row][col]=Math.min(L_way(row-1,col), L_way(row,col-1))+m[row][col];
+         }
+         
+         return cache[row][col];
+     }
+     ```
+
   2. bottom up
 
 
