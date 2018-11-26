@@ -74,16 +74,12 @@
          } else if(col === 1){
              cache[row][col] = L_way(row-1, col) + m[row][col];
          } else {
-             cache[row][col]=Math.min(L_way(row-1,col), L_way(row,col-1))+m[row][col];
+             cache[row][col] = Math.min(L_way(row-1,col), L_way(row,col-1))+m[row][col];
          }
          
          return cache[row][col];
      }
      ```
-
-  2. bottom up
-
-
 
 ### 1. Bottom-Up
 
