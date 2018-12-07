@@ -81,7 +81,11 @@ export default MyName;
 
 # State
 
-> 리액트 컴포넌트에서 다루는 데이터이다. state는 컴포넌트 내부에서 선언하며 내부에서 값을 변경 할 수 있다. 즉, 동적인 데이터를 다룰 때 사용한다.
+> 리액트 컴포넌트에서 다루는 데이터이다. state는 컴포넌트 내부에서 선언하며 내부에서 값을 변경 할 수 있다. 즉, 동적인 데이터를 다룰 때 사용한다. 
+>
+> state가 변경될 때 마다 render()함수가 호출 된다.
+>
+> state값은 절대 직접적으로 변경하지 않는다. 반드시 this.setState를 이용해야한다.
 
 ```jsx
 import React, { Component } from 'react';
