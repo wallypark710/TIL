@@ -75,3 +75,12 @@ componentDidUpdate(prevProps, prevState, snapShot){
 
 ##### *1. componentWillUnmount*
 
+```javascript
+// 컴포넌트가 더 이상 필요하지 않게 되면 이 함수가 호출된다.
+componentWillUnmount(){
+    //이벤트, setTimeOut, 외부 라이브러리 인스턴스 제거
+}
+```
+
+
+
