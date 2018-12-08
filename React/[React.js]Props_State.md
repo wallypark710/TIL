@@ -85,7 +85,7 @@ export default MyName;
 >
 > state가 변경될 때 마다 render()함수가 호출 된다.
 >
-> state값은 절대 직접적으로 변경하지 않는다. 반드시 this.setState를 이용해야한다.
+> state값은 절대 직접적으로 변경하지 않는다. 반드시 `this.setState`를 이용해야한다.
 
 ```jsx
 import React, { Component } from 'react';
