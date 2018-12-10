@@ -1,6 +1,6 @@
 # Spread Operator
 
-> spread operator는 iterable( 속성을 하나씩 차례로 반환 가능한) 객체의 요소를 하나씩 분리하여 전개한다.
+> spread operator는 iterable( 속성을 하나씩 차례로 반환 가능한) 객체의 요소를 하나씩 분리하여 전개한다. 대표적인 iterable 객체는 배열과 문자열이 있고, 일반 객체는 iterable객체가 아니므로 변환이 필요하다.
 
 ```javascript
 [...iterableObject]
