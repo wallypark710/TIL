@@ -24,9 +24,9 @@ console.log("2 : end");
 "3 : success"
 ```
 
-- Promise객체의 생성자에 argument로 넘긴 함수를 `executer` 라고 한다.
+- Promise객체의 생성자에 argument로 넘긴 함수를 `executor` 라고 한다.
 
-- Promise객체가 생성될 때, executer가 실행된다.
+- Promise객체가 생성될 때, executor가 실행된다.
 
 
 ### Promise 상태
@@ -38,4 +38,3 @@ console.log("2 : end");
 > 성공시 then함수로 넘겨진 첫번째 argument function이 실행되고, 실패시 두번째 argument function이 실행된다.
 
 ![promise_state](./promise_state.png)
-
