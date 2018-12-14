@@ -5,7 +5,7 @@
 ```javascript
 function create(){
     return new Promise(function(resolve, reject){
-        resolve();
+        resolve(); //함수를 호출하는 형태이지만, 실제로 이때 호출하진 않는다.
         console.log("1 : resolve call");
     });
 }
@@ -25,11 +25,17 @@ console.log("2 : end");
 ```
 
 - Promise객체의 생성자에 argument로 넘긴 함수를 `executer` 라고 한다.
-- 
 
+- Promise객체가 생성될 때, executer가 실행된다.
 
 
 ### Promise 상태
 
 > Promise는 실행할 때마다 진행 상태를 `promiseState`에 저장한다. 코드를 연속적으로 실행하지 않으므로 진행 상태의 저장이 필요하다. Promise의 진행상태는 크게 `pending` 과 `settled`로 나눌 수 있다.
+>
+> 그리고 `settled` 상태는 다시 `성공(fulfill)` 과 `실패(reject)`로 나눌 수 있다.
+>
+> 성공시 then함수로 넘겨진 첫번째 argument function이 실행되고, 실패시 두번째 argument function이 실행된다.
+
+![promise_state](./promise_state.png)
 
