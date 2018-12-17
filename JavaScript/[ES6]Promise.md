@@ -5,7 +5,7 @@
 ```javascript
 function create(){
     return new Promise(function(resolve, reject){
-        resolve(); //함수를 호출하는 형태이지만, 실제로 이때 호출하진 않는다.
+        resolve(); //함수를 호출하는 형태이지만, executor가 실행될 때가 아닌, then함수 바인딩까지 마무리된 후, 실행된다.
         console.log("1 : resolve call");
     });
 }
@@ -40,3 +40,4 @@ console.log("2 : end");
 ![promise_state](./promise_state.png)
 
 - promise 인스턴스가 생성되어 반환되면, resolve()를 then의 첫번째 파라미터 함수에 바인딩 하고, reject()를 then의 두번째 파라미터 함수에 바인딩한다.
+- then 함수의 두번째 파라미터를 사용하지 않고, catch함수를 이용해서 실패했을 때의 경우를 처리할 수 있다.
