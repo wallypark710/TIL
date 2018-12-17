@@ -9,6 +9,63 @@
 
 ```javascript
 //for loop 내의 함수선언과 실행
+
+var arr = [];
+
+for(var i = 0; i < 10; i++){
+    var temp = function(){
+        console.log(i); // i가 전달되지만 i가 정해지지는 않음.
+    }
+    arr.push(temp);
+}
+
+for(var k = 0; k < arr.length; k++){
+    arr[k]();
+}
+// 실행결과
+// 10 10 10 10 10 10 10 10 10 10
+
+--------------solution---------------
+var arr = [];
+
+// let
+for(let i = 0; i < 10; i++){
+    var temp = function(){
+        console.log(i);
+    }
+    arr.push(temp);
+}
+
+//IIFE
+for(var i = 0; i < 10; i++){
+    (function(i){
+    	var temp = function(){
+        	console.log(i);
+    	}    
+        arr.push(temp);
+    })(i);
+}
+
+//closure
+function pass(i){
+    return function(){
+        console.log(i);
+    }
+}
+
+for(let i = 0; i < 10; i++){
+    var temp = pass(i);
+    arr.push(temp);
+}
+
+
+---------------------------------------
+for(var k = 0; k < arr.length; k++){
+    arr[k]();
+}
+//실행결과
+//0 1 2 3 4 5 6 7 8 9
+
 ```
 
 
