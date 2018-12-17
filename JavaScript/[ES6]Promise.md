@@ -38,3 +38,5 @@ console.log("2 : end");
 > 성공시 then함수로 넘겨진 첫번째 argument function이 실행되고, 실패시 두번째 argument function이 실행된다.
 
 ![promise_state](./promise_state.png)
+
+- promise 인스턴스가 생성되어 반환되면, resolve()를 then의 첫번째 파라미터 함수에 바인딩 하고, reject()를 then의 두번째 파라미터 함수에 바인딩한다.
