@@ -26,6 +26,8 @@ $ npm init
 
 
 
+- Test code 작성
+
 노드에서 테스트 환경을 만들땐, 외부 프레임워크의 도움을 받아야 한다. 대표적으로 모카(Mocha)와 슈드(Should)가 있다.
 
 ```text
@@ -44,4 +46,9 @@ $ node_modules/.bin/mocha server.spec.js
 // spec.js로 끝나는 파일을 모두 모카 테스트로 실행하도록 등록.
 "test" : "mocha $(find ./ -name \"*.spec.js\")"
 ```
+
+
+
+- Code 구조
+
 
