@@ -51,4 +51,6 @@ $ node_modules/.bin/mocha server.spec.js
 
 - Code 구조
 
+  > 모듈(컴포넌트)별로 분리하여 작성한다.
+
 
