@@ -93,3 +93,12 @@ param => ( {key : value} );
   ```
 
 
+
+- arrow function은 execution context를 만들지 않는다.
+
+  - this는 바로 위에있는 함수의 execution context에 묶인다.
+  - execution context가 없기 때문에, arguments를 바인딩하지 않는다.
+  - call, apply의 this 바인딩은 무시된다.
+
+- 일반 function의 this는 어디에서보다 어떻게 호출되는지가 더 중요하지만( 어떻게 호출되는지에 따라 this바인딩이 달라진다), arrow function의 경우 어디에서 정의 되는지만 고려하면 된다.
+
