@@ -12,7 +12,7 @@
 var Tree = (function(){
     function Tree(){
         this.count = 0;
-        this.root;
+        this.root = null;
     }
     
     function Node(data){
@@ -21,7 +21,48 @@ var Tree = (function(){
         this.right;
     }
     
+    Tree.prototype.findInsertPosition = function(rootNode, targetNode){
+        
+        if( rootNode.right === undefined && targetNode.data > rootNode.data ){
+            rootNode.right = targetNode;
+            return;
+        }
+        
+        if( rootNode.left === undefined && targetNode.data <= rootNode.data){
+            rootNode.left = targetNode;
+            return;
+        }
+        
+        if( targetNode.data > rootNode.data ){
+            this.findInsertPosition(rootNode.right, targetNode);
+        } else {
+            this.findInsertPosition(rootNode.left, targetNode);
+        }
+    };
     
+    Tree.prototype.insert = function(data){
+        var newNode = new Node(data);
+        
+        if( this.root === null){
+            this.root = newNode;
+        } else {
+            this.findInsertPosition(this.root, newNode);
+        }
+        this.count++;
+    };
+    
+    Tree.prototype.search = function(targetData, rootNode = this.root){
+        
+        if(rootNode.data === targetData){
+            return rootNode;
+        }
+        
+        if( targetData > rootNode.data ){
+            return this.search( targetData, rootNode.right);
+        } else {
+            return this.search( targetData, rootNode.left);
+        }
+    };
     
     return Tree;
     
