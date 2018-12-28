@@ -27,3 +27,13 @@
   ```javascript
   $ git remote rm [custom_name]
   ```
+
+- 직전 log로 돌아가기 ( 직전 상태로 돌아가기 )
+
+  ```text
+  $ git reset --hard HEAD~1
+  ```
+
+  : `--hard` 옵션은 log와 실제 파일내용까지 모두 이전 상태로 돌아간다.
+
+  : `--soft` 옵션은 실제 파일내용은 돌아가지않고 커밋할수 있는 상태로 돌아간다. 그리고 log는 지워진다.
