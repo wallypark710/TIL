@@ -20,3 +20,10 @@
 
   ![flow](./flow.png)
 
+
+
+- remote 삭제하기
+
+  ```javascript
+  $ git remote rm [custom_name]
+  ```
