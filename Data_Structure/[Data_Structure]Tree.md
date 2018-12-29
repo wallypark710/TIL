@@ -2,8 +2,6 @@
 
 >비선형 자료구조로 상황에 따라 효율적인 데이터 관리가 가능하다. 
 >
->
->
 >...
 >
 > `모든 왼쪽 자식들 <= n < 모든 오른쪽 자식들` 이와같은 속성을 가진 트리를 이진 탐색 트리라고 하고, 이를 구현해 본다.
@@ -23,7 +21,7 @@ var Tree = (function(){
         this.right;
     }
     
-    Tree.prototype.findInsertPosition = function(rootNode, targetNode){
+	function findInsertPosition(rootNode, targetNode){
         
         if( rootNode.right === undefined && targetNode.data > rootNode.data ){
             rootNode.right = targetNode;
@@ -36,11 +34,27 @@ var Tree = (function(){
         }
         
         if( targetNode.data > rootNode.data ){
-            this.findInsertPosition(rootNode.right, targetNode);
+            findInsertPosition(rootNode.right, targetNode);
         } else {
-            this.findInsertPosition(rootNode.left, targetNode);
+            findInsertPosition(rootNode.left, targetNode);
         }
     };
+    
+    function findMaxRight(rootNode){
+        if( rootNode.right === undefined && rootNode.left === undefined ){
+            return rootNode;
+        } else {
+            return findMaxRigth(rootNode.left);
+        }
+    };
+    
+    function inOrderTravel(rootNode){
+        if( rootNode === undefined ){
+            return;
+        }
+        
+        inOrderTravel(rootNode.left);
+    }
     
     Tree.prototype.insert = function(data){
         var newNode = new Node(data);
@@ -48,7 +62,7 @@ var Tree = (function(){
         if( this.root === null){
             this.root = newNode;
         } else {
-            this.findInsertPosition(this.root, newNode);
+           findInsertPosition(this.root, newNode);
         }
         this.count++;
     };
@@ -63,6 +77,24 @@ var Tree = (function(){
             return this.search( targetData, rootNode.right);
         } else {
             return this.search( targetData, rootNode.left);
+        }
+    };
+    
+    Tree.prototype.delete = function(targetData, rootNode = this.root){
+        var deleteData;
+        var newRootNode;
+        var temp;
+        
+        if( rootNode.data === targetData ){
+            deleteData = rootNode.data;
+            
+            temp = findMaxRight(rootNode.right);
+            temp.left = rootNode.left;
+            temp.right = rootNode.right;
+            rootNode = temp;
+            temp = undefined;
+            
+            return deleteData;
         }
     };
     
