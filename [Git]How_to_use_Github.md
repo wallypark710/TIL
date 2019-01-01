@@ -4,7 +4,7 @@
 
 
 > Git은 프로그램 등의 소스 코드 관리를 위한 분산 버전 관리 시스템이다. Git의 작업 폴더는 모두 전체 기록과 각 기록을 추적할 수 있는 정보를 포함하고 있으며 네트워크에 접근하거나 중앙 서버에 의존하지 않는다. 쉽게말해 진행되고있는 작업의 수정사항을 모두 기록하며 원하는 특정지점으로 되돌리기가 매우 용이하다. 다수의 사람들과 함께 작업할경우 각각의 변동사항을 체계적으로 관리할 수 있다.
- 
+
 
 
 
@@ -16,6 +16,14 @@
 
 
 ### Basic Git Workflow
+
+0. 깃 사용자명/ 이메일 구성하기.
+
+   ```text
+   $git config user.name "USER_NAME"
+   $git config user.email "EMAIL_ADDRESS"
+   ```
+
 
 1. 깃허브에 있는 원격 저장소를 로컬 저장소로 가져오기.
 
@@ -69,6 +77,7 @@
       $git init
       $git remote add origin (github_repository_address)
       ```
+
 
 
 8. 파일 이름 변경
