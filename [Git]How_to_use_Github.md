@@ -88,3 +88,17 @@
 
     - 이후 commit 과 push를 진행하면 github에 수정된 내용이 갱신된다.
 
+
+
+9. 마지막 커밋 고치기
+
+   ```text
+   $git commit --amend
+   ```
+
+
+10. 깃 커밋 로그 확인하기
+
+    ```text
+    $git log
+    ```
