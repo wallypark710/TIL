@@ -4,6 +4,27 @@
 >
 > 클래스는 호이스팅이 되지 않으며, 일반적으로 클래스 이름 첫글자는 대문자로 작성한다.
 
+- #### 클래스 선언식
+
+  ```javascript
+  class name {
+      ...
+  };
+  ```
+
+- #### 클래스 표현식
+
+  ```javascript
+  let temp = class {
+      ...
+  };
+      
+  let temp = class name {
+      ...
+  };
+  ```
+
+
 ```javascript
 //클래스 선언 방법
 class name {};
@@ -109,7 +130,7 @@ class name extends super_name {};
 
 - #### static
 
-  >클래스에 static(정적) 메서드를 정의할때 사용한다. static 메서드는 클래스의 prototype에 연결되지 않고 클래스에 직접 연결된다. 따라서 인스턴스를 생성하지 않고 호출한다. 다른말로 인스턴스에서 호출할 수 없다. 클래스 이름을 통해 호출해야 한다.
+  >클래스에 static(정적) 메서드를 정의할때 사용한다. **static 메서드는 클래스의 prototype에 연결되지 않고 클래스에 직접 연결된다.** 따라서 인스턴스를 생성하지 않고 호출한다. 다른말로 인스턴스에서 호출할 수 없다. 클래스 이름을 통해 호출해야 한다.
 
   ```javascript
   class Coffee{

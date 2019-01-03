@@ -79,6 +79,11 @@
 
 
 
+### Method
+
+- *Object.values( targetObj )* : 객체의 value만을 배열에 담아서 반환.
+- Object.assign( target, ...source ) : target에 source객체의 요소를 담아서 반환.
+
 
 
 
