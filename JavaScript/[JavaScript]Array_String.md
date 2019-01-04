@@ -144,3 +144,9 @@
 
  - *JSON.parse( sources )*  :  stringify의 반대 기능.
 
+
+
+# Etc. Operator
+
+- *+ (boolean)* : true 또는 false를 1 과 0 으로 바꿔준다.
+- *!! (someData)* : someData를 ture 또는 false로 바꿔준다. 
