@@ -135,3 +135,27 @@ function makeRequest(){
 }
 ```
 
+
+
+#### Another Step. : fetch() API 사용.
+
+fetch() API 란 promise를 이용하여 httpRequest를 보다 간편하게 사용하는 방법을 제공한다.
+
+```javascript
+const serverURL = 'http://99.99.99.99'
+window.fetch(serverURL, {
+  method: 'POST',
+  body: JSON.stringify(message),
+  headers: {
+    "Content-Type": "application/json",
+  }
+}).then(response => {
+  return response.json();
+}).then(json => {
+  console.log(json);
+  // message sent!
+});
+```
+
+
+
