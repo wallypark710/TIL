@@ -13,6 +13,14 @@ $ git stash save STASH_NAME
 
 
 
+### 저장된 작업 리스트 보기
+
+```text
+$ git stash list
+```
+
+
+
 ### 다시 불러오기 ( unstash )
 
 ```text
@@ -28,4 +36,3 @@ $ git stash apply STASH_NAME
 ```
 
 : 특정 작업본을 가져온다. pop과는 다르게 stash list 에서 지워지지 않는다.
-
