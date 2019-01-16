@@ -49,7 +49,7 @@
 
 - #### Reducer
 
-  : 액션이 일어났을 때 실제 어떤 일이 일어날지를 기술. reducer가 한개 일수도 있고, 여러개일 수 도 있다.
+  : 액션이 일어났을 때 실제 어떤 일이 일어날지를 기술. reducer가 한개 일수도 있고, 여러개일 수 도 있다. 이 때, **reducer는 순수 함수로 작성되어야 한다**. 순수 함수라 함은 오직 같은 parameter를 넣으면 항상 같은 return이 나오는것을 말한다. 또한 함수 내부에서 API호출이나 외부 네트웨크, 데이터베이스에 접근하지 않아야 한다.
 
   ```javascript
   import { action_name ... } from '...';
@@ -117,4 +117,9 @@
   const store = createStore(Reducer);
   ```
 
-  
+
+
+## Flow
+
+![reduxFlow](./reduxFlow.png)
+
