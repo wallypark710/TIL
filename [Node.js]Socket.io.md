@@ -62,8 +62,35 @@
 - Socket.io 서버
 
   ```javascript
-  const app = require('express')();
-  const server = require('http').createServer(app);
+  var app = require('express')();
+  var http = require('http').Server(app);
+  var io = require('socket.io')(http);
+  
+  //localhost:3000으로 서버에 접속하면 클라이언트에 index.html파일을 넘겨준다.
+  app.get('/', function(req, res){
+    res.sendFile(__dirname + '/index.html');
+  });
+  
+  //클라이언트와 connection이 되면 이벤트가 실행
+  io.on('connection', function(socket){
+    console.log('a user connected');
+    //클라이언트로부터 메시지가 오면...
+    socket.on('chat message', function(msg){
+      console.log('message: ' + msg);
+      //접속된 모든 클라이언트에게 메시지 전송
+      io.emit('chat message', msg);
+    });
+  
+    //클라이언트 접속이 끊어지면... 'disconnect'는 정의된 이벤트인듯 하다.
+    socket.on('disconnect', function(){
+      console.log('user disconnected');
+    });
+  });
+  
+   
+  http.listen(3000, function(){
+    console.log('listening on *:3000');
+  });
   ```
 
   
