@@ -10,4 +10,53 @@
 
 ## JWT
 
-> json web token 
+> JWT( Json Web Token ) 는 토큰 기반 인증 시스템의 구현체이다. JWT는 필요한 정보를 자체적으로 지니고 있다. 
+
+
+
+- JWT는 다음과 같은 상황에서 유용하게 사용된다.
+  1. **회원인증**
+  2. **정보 교류** : 두 개체 사이에서 안정성있게 정보를 교환하기 좋다. JWT는 특정 키로 해싱되어 있기 때문에 정보의 발신자와 조작여부를 검증할 수 있다.
+
+
+
+- JWT 구조
+
+  ```
+  aaaaaaaaa.bbbbbbbbb.ccccccc
+  --------- --------- ---------
+   header    payload  signature
+  ```
+
+  **1. header**
+
+  ```
+  {
+      "typ" : "JWT",
+      "alg" : "HS256"
+  }
+  ```
+
+  **2. payload**
+
+  여기에 담는 key-value 쌍을 claim이라고 부른다.
+
+  ```
+  {
+  	"key" : "value"   
+  }
+  ```
+
+  **3.signature**
+
+  서명은 헤더의 인코딩 값과, payload의 정보를 인코딩한 값을 합친뒤 서버가 가지고있는 비밀 키를 이용해 해쉬하여 생성한다.
+
+  ```
+  HMACSHA256(
+    base64UrlEncode(header) + "." + base64UrlEncode(payload),
+    '서버의 비밀 키')
+  ```
+
+  
+
+- JWT는 토큰 자체에 정보가 있다는 부분이 큰 위험으로 작용될 수 있다. payload의 정보는 단순히 인코딩된 데이터로, 데이터를 누구나 볼 수 있다. 이러한 문제를 해결하기 위해 payload부분에 중요한 정보를 넣치 않거나 JWE( Json Web Encrytion )을 사용한다.
