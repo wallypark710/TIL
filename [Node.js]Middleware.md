@@ -1,6 +1,6 @@
 # Middle ware
 
-> Node 서버를 구축할 때 다양한 미들웨어를 사용하여 서버를 좀 더 효율적으로 구축할 수 있다.
+> Node 서버를 구축할 때 다양한 미들웨어를 사용하여 서버를 좀 더 효율적으로 구축할 수 있다. 서버를 구축하면서 서버의 보안적인 측면, 에러에 대한 로그, 라우터관리와 같은 부분들을 좀 더 수월하게 할 수 없을까 하는 고민을 하게 되었다. 
 
 
 
@@ -66,4 +66,35 @@ const app = express();
 ```bash
 $ npm install --save helmet
 ```
+
+
+
+### 3. body-parser
+
+> body-parser는 http통신에서 POST로 보내진 body data를 쉽게 추출하게 해주는 모듈이다. 기존의 http 모듈만을 이용해서 body를 파싱하려면 아래와 같이 이벤트를 등록해서 인코딩처리를 해야한다.
+>
+> ```js
+> let body;
+> req.on('data', (chunk) => {
+>     body += chunk;
+> })
+> ```
+>
+> 
+>
+> 하지만 body-parser를 이용하면 아래와 같이 쉽게 데이터를 파싱할 수 있다.
+>
+> ```js
+> const express = require('express');
+> const bodyParser = require('body-parser');
+> 
+> const app = express();
+> 
+> app.use(bodyParser.urlencoded({extended : true}));
+> app.use(bodyParser.json());
+> 
+> app.post('/userInfo', (req, res) => {
+>     const {userInfo} = req.body; 
+> })
+> ```
 
