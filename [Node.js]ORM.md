@@ -37,6 +37,30 @@ $ sequelize init:medels
 > 데이터베이스와 관련된 설정값을 입력한다. `NODE_ENV` 에 따라 다른 값을 사용하기 때문에 사용할 `NODE_ENV` 를 꼭 확인한다.
 
 ```
+{
+  "development": {
+    "username": "testUser",
+    "password": "1234567",
+    "database": "testDB",
+    "host": "SOMEWHERE",
+    "dialect": "mysql",
+    "port": "3306"
+  },
+  "test": {
+    "username": "root",
+    "password": null,
+    "database": "database_test",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "root",
+    "password": null,
+    "database": "database_production",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  }
+}
 
 ```
 
@@ -45,6 +69,60 @@ $ sequelize init:medels
 #### define Model
 
 > 데이터베이스의 스키마를 설정해주는것과 비슷한 작업이다. 
+
+```js
+'use strict';
+
+require('dotenv').config();
+
+const Sequelize = require('sequelize');
+
+const env = process.env.NODE_ENV || 'development';
+const config = require('../../config/sequelize.json')[env];
+
+const db = {};
+
+const sequelize = new Sequelize(
+  config.database,
+  config.username,
+  config.password,
+  config,
+);
+
+db.sequelize = sequelize;
+db.Sequelize = Sequelize;
+
+//모델정보를 읽어온다.
+db.Users = require('./users')(sequelize, Sequelize);
+
+//모델간의 관계를 설정.
+db.Users.hasMany(db.Challenges, { foreignKey: 'challenger', sourceKey: 'id' });
+db.Challenges.belongsTo(db.Users, {
+  foreignKey: 'challenger',
+  targetKey: 'id',
+});
+
+module.exports = db;
+```
+
+```js
+//define model
+module.exports = (sequelize, DataTypes) => sequelize.define('users', {
+  id: {
+    type: DataTypes.INTEGER,
+    primaryKey: true,
+    autoIncrement: true,
+    unique: true,
+  },
+  email: {
+    field: 'email',
+    type: DataTypes.STRING(50),
+    unique: true,
+    allowNull: false,
+  },
+    ...
+});
+```
 
 
 
