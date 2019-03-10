@@ -67,3 +67,11 @@ INSERT INTO <table_name> VALUES (val_1, val_2, val_3, ... );
 
 : VALUES 값은 스키마 순서대로 넣어주어야 한다.
 
+
+
+- 데이터 업데이트
+
+```sql
+UPDATE <table_name> SET <column_name> = <new_value> WHERE ...;
+```
+
