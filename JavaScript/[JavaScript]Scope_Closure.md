@@ -101,49 +101,80 @@ for(var k = 0; k < arr.length; k++){
 
 # This
 
->- 함수가 어떻게 불리는지에 따라 결정된다. 호출시점에 따라 달라진다.
+>- 함수가 어떻게 불리는지에 따라 결정된다. 호출시점에 따라 달라진다. 함수 선언 위치와는 아무런 상관이 없다.
 >
 >- Call site : 함수가 호출된 지점을 의미. javascript에서는 함수가 호출되는 지점에서의 포함된 객체를 찾아 해당 객체와 this를 바인딩한다.
 >
 >- this의 4가지 바인딩 패턴
 >
->  1. 글로벌 레퍼런스 or 일반함수 호출시
+> 1. 글로벌 레퍼런스 or 일반함수 호출시
 >
->     :  this는 전역(window)를 가리킨다.
+>:  this는 전역(window)를 가리킨다.
 >
->  2. 메소드 호출시
+> 2. 메소드 호출시( 객체를 포함하는 형태로 호출 ex| foo.add() )
 >
->     : this는 부모 객체를 가리킨다.
+>: this는 부모 객체를 가리킨다.
 >
->  3. 생성자에 의한 호출시
+> 3. 생성자에 의한 호출시
 >
->     : this는 새로 생성된 객체를 가리킨다.
+>: this는 새로 생성된 객체를 가리킨다.
 >
->  4. call or apply에 의한 호출시
+> 4. call or apply에 의한 호출시
 >
->     : this는 첫번째 argument가 지칭하는 것.
+>: this는 첫번째 argument가 지칭하는 것. ( null or undefined를 넘기면 기본 바인딩이 적용 : window or global )
+>
+>```js
+>//null or undefined를 사용하는것은 안전하지 않다. 내부적으로 this가 가리키는 곳이 달라질 수 있기 때문이다. 이때 어디에도 영향을 끼치지 않는 객체를 만들어 바인딩하면 좋다.
+>
+>const ø = Object.create(null);   //완전히 비어있는 객체, {}의 경우 object를 상속받고 있다.
+>
+>exFunc.call( ø, 2);
+>
+>```
+>
+>: 명시적 바인딩을 했을경우 변경할 수 없다. 한번 지정한 this는 변경 불가
+>
 >
 >- example
 >
->  ```javascript
->  function Espresso(){
->      this.cost = 2500;
+>```javascript
+>function Espresso(){
+> this.cost = 2500;
+>}
+>
+>function Americano() {
+> Esspresso.call(this);
+> this.cost = (new Esspresso()).cost + 500;
+> this.water = 250;
+>}
+>
+>console.log(new Americano());
+>```
+>
+> - new Americano() 가 실행됬을때 동작은 다음과 같다.
+>   1. new 키워드에 의해 Americano 객체가 생성되어 Americano 생성자 함수 내부의 this는 Americano 로 바인딩 된다.
+>   2. Esspresso.call(this) 에서 this는 Americano 이므로 Espresso 생성자 함수 내의 this는 Americano이다. 즉 Americano 객체 내부의 cost라는 속성이 생성되고 그 값은 2500 으로 할당된다.
+>   3. this.cost = (new Esspresso()).cost + 500; 에서 this.cost 의 this는 Americano를 가리키므로, Americano의 cost속성에 Espresso.cost 값에 500 이 더해진 값이 할당 된다.
+>   4. this.water = 250; 에서 this는 Americano이므로 Americano 객체 내부의 water라는 속성이 추가되고, 값은 250 으로 할당된다.
+>      
+>
+>- 간접 레퍼런스 참조 : `대입 연산에서의 this 바인딩 주의`
+>
+>  ```js
+>  function foo(){
+>    console.log(this.a);
 >  }
 >  
->  function Americano() {
->      Esspresso.call(this);
->      this.cost = (new Esspresso()).cost + 500;
->      this.water = 250;
->  }
+>  var a = 2;
+>  var o = { a: 3, foo: foo };
+>  var p = { a: 4 };
 >  
->  console.log(new Americano());
+>  o.foo(); //3
+>  (p.foo = o.foo)(); //2
 >  ```
 >
->  - new Americano() 가 실행됬을때 동작은 다음과 같다.
->    1. new 키워드에 의해 Americano 객체가 생성되어 Americano 생성자 함수 내부의 this는 Americano 로 바인딩 된다.
->    2. Esspresso.call(this) 에서 this는 Americano 이므로 Espresso 생성자 함수 내의 this는 Americano이다. 즉 Americano 객체 내부의 cost라는 속성이 생성되고 그 값은 2500 으로 할당된다.
->    3.  this.cost = (new Esspresso()).cost + 500; 에서 this.cost 의 this는 Americano를 가리키므로, Americano의 cost속성에 Espresso.cost 값에 500 이 더해진 값이 할당 된다.
->    4. this.water = 250; 에서 this는 Americano이므로 Americano 객체 내부의 water라는 속성이 추가되고, 값은 250 으로 할당된다.
+>  - 대입 연산의 결과는 대입하려는 값이다.
+>    p.foo = o.foo 의 결과는 o.foo 이다. 따라서 (p.foo = o.foo) 의 실행 결과는 foo라는 함수가 되고, 이를 실행하기때문에 일반함수 호출이 된다. this 바인딩은 전역!
 >
 
 
