@@ -107,19 +107,19 @@ for(var k = 0; k < arr.length; k++){
 >
 >- this의 4가지 바인딩 패턴
 >
-> 1. 글로벌 레퍼런스 or 일반함수 호출시
+>1. 글로벌 레퍼런스 or 일반함수 호출시
 >
 >:  this는 전역(window)를 가리킨다.
 >
-> 2. 메소드 호출시( 객체를 포함하는 형태로 호출 ex| foo.add() )
+>2. 메소드 호출시( 객체를 포함하는 형태로 호출 ex| foo.add() )
 >
 >: this는 부모 객체를 가리킨다.
 >
-> 3. 생성자에 의한 호출시
+>3. 생성자에 의한 호출시
 >
 >: this는 새로 생성된 객체를 가리킨다.
 >
-> 4. call or apply에 의한 호출시
+>4. call or apply에 의한 호출시
 >
 >: this는 첫번째 argument가 지칭하는 것. ( null or undefined를 넘기면 기본 바인딩이 적용 : window or global )
 >
@@ -134,47 +134,63 @@ for(var k = 0; k < arr.length; k++){
 >
 >: 명시적 바인딩을 했을경우 변경할 수 없다. 한번 지정한 this는 변경 불가
 >
+>```js
+>function test(){
+>  console.log(this.name);
+>}
+>
+>const person_A = { name: 'walli' };
+>const person_B = { name: 'code' };
+>
+>let func_1 = test.call(person_A); // 'walli'
+>
+>//한번 명시적으로 바인딩된 this는 변경할 수 없다.
+>let func_2 = func_1.call(person_B); // 'walli'
+>```
+>
+>
+>
 >
 >- example
 >
 >```javascript
 >function Espresso(){
-> this.cost = 2500;
+>this.cost = 2500;
 >}
 >
 >function Americano() {
-> Esspresso.call(this);
-> this.cost = (new Esspresso()).cost + 500;
-> this.water = 250;
+>Esspresso.call(this);
+>this.cost = (new Esspresso()).cost + 500;
+>this.water = 250;
 >}
 >
 >console.log(new Americano());
 >```
 >
-> - new Americano() 가 실행됬을때 동작은 다음과 같다.
->   1. new 키워드에 의해 Americano 객체가 생성되어 Americano 생성자 함수 내부의 this는 Americano 로 바인딩 된다.
->   2. Esspresso.call(this) 에서 this는 Americano 이므로 Espresso 생성자 함수 내의 this는 Americano이다. 즉 Americano 객체 내부의 cost라는 속성이 생성되고 그 값은 2500 으로 할당된다.
->   3. this.cost = (new Esspresso()).cost + 500; 에서 this.cost 의 this는 Americano를 가리키므로, Americano의 cost속성에 Espresso.cost 값에 500 이 더해진 값이 할당 된다.
->   4. this.water = 250; 에서 this는 Americano이므로 Americano 객체 내부의 water라는 속성이 추가되고, 값은 250 으로 할당된다.
->      
+>- new Americano() 가 실행됬을때 동작은 다음과 같다.
+>  1. new 키워드에 의해 Americano 객체가 생성되어 Americano 생성자 함수 내부의 this는 Americano 로 바인딩 된다.
+>  2. Esspresso.call(this) 에서 this는 Americano 이므로 Espresso 생성자 함수 내의 this는 Americano이다. 즉 Americano 객체 내부의 cost라는 속성이 생성되고 그 값은 2500 으로 할당된다.
+>  3. this.cost = (new Esspresso()).cost + 500; 에서 this.cost 의 this는 Americano를 가리키므로, Americano의 cost속성에 Espresso.cost 값에 500 이 더해진 값이 할당 된다.
+>  4. this.water = 250; 에서 this는 Americano이므로 Americano 객체 내부의 water라는 속성이 추가되고, 값은 250 으로 할당된다.
+>
 >
 >- 간접 레퍼런스 참조 : `대입 연산에서의 this 바인딩 주의`
 >
->  ```js
->  function foo(){
->    console.log(this.a);
->  }
->  
->  var a = 2;
->  var o = { a: 3, foo: foo };
->  var p = { a: 4 };
->  
->  o.foo(); //3
->  (p.foo = o.foo)(); //2
->  ```
+>```js
+>function foo(){
+>console.log(this.a);
+>}
 >
->  - 대입 연산의 결과는 대입하려는 값이다.
->    p.foo = o.foo 의 결과는 o.foo 이다. 따라서 (p.foo = o.foo) 의 실행 결과는 foo라는 함수가 되고, 이를 실행하기때문에 일반함수 호출이 된다. this 바인딩은 전역!
+>var a = 2;
+>var o = { a: 3, foo: foo };
+>var p = { a: 4 };
+>
+>o.foo(); //3
+>(p.foo = o.foo)(); //2
+>```
+>
+> - 대입 연산의 결과는 대입하려는 값이다.
+>p.foo = o.foo 의 결과는 o.foo 이다. 따라서 (p.foo = o.foo) 의 실행 결과는 foo라는 함수가 되고, 이를 실행하기때문에 일반함수 호출이 된다. this 바인딩은 전역!
 >
 
 
