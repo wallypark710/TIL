@@ -22,7 +22,7 @@
 >
 > requrie 함수를 실행시키면 불러오려고 하는 파일을 한번 실행시킨다. 하지만 같은 파일에서 require를 이용해 같은 파일을 두번 이상 호출할 경우 처음 한번만 실행된다.
 
-![Screen Shot 2019-04-08 at 3.18.40 PM](/Users/walli/Desktop/Screen Shot 2019-04-08 at 3.18.40 PM.png)
+![module](./commonJS.png)
 
 ```js
 var module = {
