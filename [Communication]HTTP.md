@@ -46,3 +46,35 @@
 
 > 400번대 에러는 클라이언트에서 요청을 잘못해서 생기고, 500번대 에러는 서버에서 처리를 못해서 생긴다.
 
+
+
+---
+
+### HTTP Header
+
+- ***General header***
+
+  : 응답과 요청 모두에 사용되는 헤더이다. 주요 구성요소는 다음과 같다.
+
+  - Data
+  - Content-Length
+  - Content-Type
+  - Content-Language
+  - Conten-Encoding
+
+- ***Request header***
+  : 요청시 사용되는 헤더이다. 주요 구성요소는 다음과 같다.
+
+  - Host
+  - User-Agent
+  - Accept : 응답으로 올 데이터 타입을 명시한다.
+  - Authorization : 인증토큰과 같은 인증/인가 과정에 필요한 요소를 포함한다.
+
+- ***Response header***
+
+  : 응답에 사용되는 헤더이다. 주요 구성요소는 다음과 같다.
+
+  - Status Code
+  - Content-Type
+  - Content-Length
+  - Response body
