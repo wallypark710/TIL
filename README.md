@@ -1,3 +1,4 @@
 # TIL
 
-- daily commit
+**Personal Wiki based on everyday learning**
+
