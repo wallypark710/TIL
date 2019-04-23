@@ -1,5 +1,9 @@
 # RESTful API
 
+> REST란 Representational State Transfer의 약자로, 웹에 존재하는 모든 자원을 정의하고 자원에 대한 주소를 지정하는 방법론을 의미한다.
+>
+> RESTful API는 REST의 특징을 지키면서  API를 제공하는것을 의미한다.
+
 ### 1. REST 구성
 
 - 자원 (Resource) - URI
