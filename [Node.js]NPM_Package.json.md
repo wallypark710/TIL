@@ -1,6 +1,6 @@
 # NPM
 
-> Node Package Manger
+> Node Package Manger는 자바스크립트 런타임 환경 Node.js 의 기본 패키지 관리자이다. 클라이언트(npm), 그리고 공개 패키지와 지불 방식의 개인 패키지의 온라인데이터 베이스(npm 레지스트리)로 이루어져 있다.
 
 
 
