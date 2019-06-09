@@ -42,9 +42,9 @@
 
 ### 3. Data Flow
 
-> React는 단방향 데이터 흐름을 지향한다. 
+> React는 단방향 데이터 흐름을 가진다.
 
-
+![react-flow](./react-flow.png)
 
 ## Ready
 
