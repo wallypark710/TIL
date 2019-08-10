@@ -165,3 +165,6 @@ export default Counter;
   <button onClick = { this.handleIncrease() }> + </button>
   ```
 
+- React 비동기 issue
+
+  > 리액트에서 state값의 변경은 비동기로 이뤄진다. 컴포넌트 최적화 이슈로 인해 적절한 타이밍에 변경이 이루어진다. 
