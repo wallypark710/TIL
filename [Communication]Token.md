@@ -75,3 +75,30 @@
   
 
 - JWT는 토큰 자체에 정보가 있다는 부분이 큰 위험으로 작용될 수 있다. payload의 정보는 단순히 인코딩된 데이터로, 데이터를 누구나 볼 수 있다. 이러한 문제를 해결하기 위해 payload부분에 중요한 정보를 넣치 않거나 JWE( Json Web Encrytion )을 사용한다.
+
+
+
+## Usage JWT
+
+#### Create Token
+
+```js
+jwt.sign({data: 'walli'}, 'private_secret', { expiresIn: 60*60 });
+```
+
+
+
+#### Verify Token
+
+```js
+jwt.verify( token, 'private_secret', (err, decoded) => {
+	if(err){
+    // error handling logic
+  }
+  
+  if(decoded){
+    // next step
+  }
+})
+```
+
