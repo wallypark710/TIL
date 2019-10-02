@@ -1,4 +1,4 @@
 # TIL
 
-**Personal Wiki based on everyday learning**
+**🙌🏻 Personal Wiki based on everyday learning**
 
