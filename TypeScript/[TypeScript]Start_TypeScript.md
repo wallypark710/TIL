@@ -42,3 +42,36 @@ const user: {
 const nameAndHeight: [string, number] = ['walli', '100'];
 ```
 
+
+
+### Enum
+
+```ts
+enum Color {Red, Green, Blue }
+let c : Color = Color.Green;
+```
+
+
+
+### Object
+
+```ts
+interface Person {
+  [name:string] : number
+}
+```
+
+
+
+### Public, private, and protected modifiers
+
+```ts
+class Animal {
+    private name: string;
+    public constructor(theName: string) { this.name = theName; }
+    public move(distanceInMeters: number) {
+        console.log(`${this.name} moved ${distanceInMeters}m.`);
+    }
+}
+```
+
