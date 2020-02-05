@@ -60,3 +60,14 @@ $ git checkout -b [branch_name]
   ```text
   $ git branch -d [branch_name]
   ```
+
+
+
+## 원격 저장소의 branch 가져오기
+
+```bash
+$ git checkout -t <remote>/<branch_name>
+```
+
+- `-t` 옵션은 원격 저장소의 브랜치 이름과 동일한 이름의 브랜치를 로컬에 생성하고, 해당 브랜치로 head를 옮긴다.
+
