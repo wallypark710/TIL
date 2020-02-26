@@ -41,3 +41,8 @@ console.log("2 : end");
 
 - promise 인스턴스가 생성되어 반환되면, resolve()를 then의 첫번째 파라미터 함수에 바인딩 하고, reject()를 then의 두번째 파라미터 함수에 바인딩한다.
 - then 함수의 두번째 파라미터를 사용하지 않고, catch함수를 이용해서 실패했을 때의 경우를 처리할 수 있다.
+
+
+
+# Async Await
+
